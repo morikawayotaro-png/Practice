@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>お問い合わせ｜株式会社TRY'S</title>
+  <meta name="description" content="株式会社TRY'Sへのお問い合わせ。ブランドのご相談、取材、その他のお問い合わせはこちらから。">
+  <link rel="canonical" href="https://trys-inc.co.jp/contact">
+  <meta property="og:title" content="お問い合わせ｜株式会社TRY'S">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://trys-inc.co.jp/contact">
+  <meta property="og:image" content="https://trys-inc.co.jp/assets/ogp.png">
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500&family=Noto+Serif+JP:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body class="header-on-light">
+
+  <header class="site-header">
+    <a class="site-logo" href="../" aria-label="TRY'S トップページ">
+      <svg width="24" height="24" viewBox="0 0 32 32" aria-hidden="true"><path d="M6 23 A10 10 0 0 1 26 23" fill="none" stroke="#A8845C" stroke-width="1.6"/></svg>
+      TRY'S
+    </a>
+    <nav class="site-nav" aria-label="グローバルナビゲーション">
+      <a href="../about/">ABOUT</a>
+      <a href="../business/">BUSINESS</a>
+      <a href="../brands/">BRANDS</a>
+      <a href="../company/">COMPANY</a>
+      <a href="./" aria-current="page">CONTACT</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <div class="page-head">
+      <div class="container">
+        <span class="label">Contact</span>
+        <h1 class="serif" style="font-size: 1.7rem; margin-top: 16px;">お問い合わせ</h1>
+        <p class="lead" style="margin-top: 24px;">ブランドのご相談、取材、その他のお問い合わせはこちらから。</p>
+      </div>
+    </div>
+
+    <section class="section">
+      <div class="container container--poem">
+
+        <form id="contact-form" novalidate>
+
+          <div class="form-field" data-field="company">
+            <label for="company">会社名・団体名</label>
+            <input type="text" id="company" name="company" autocomplete="organization">
+            <p class="form-error"></p>
+          </div>
+
+          <div class="form-field" data-field="name">
+            <label for="name">お名前<span class="required">必須</span></label>
+            <input type="text" id="name" name="name" autocomplete="name" required>
+            <p class="form-error"></p>
+          </div>
+
+          <div class="form-field" data-field="email">
+            <label for="email">メールアドレス<span class="required">必須</span></label>
+            <input type="email" id="email" name="email" autocomplete="email" required>
+            <p class="form-error"></p>
+          </div>
+
+          <div class="form-field" data-field="tel">
+            <label for="tel">電話番号</label>
+            <input type="tel" id="tel" name="tel" autocomplete="tel">
+            <p class="form-error"></p>
+          </div>
+
+          <div class="form-field" data-field="subject">
+            <label for="subject">ご用件<span class="required">必須</span></label>
+            <select id="subject" name="subject" required>
+              <option value="">選択してください</option>
+              <option value="ブランドのご相談">ブランドのご相談</option>
+              <option value="取材・メディア">取材・メディア</option>
+              <option value="採用">採用</option>
+              <option value="その他">その他</option>
+            </select>
+            <p class="form-error"></p>
+          </div>
+
+          <div class="form-field" data-field="message">
+            <label for="message">内容<span class="required">必須</span></label>
+            <textarea id="message" name="message" maxlength="2000" required></textarea>
+            <p class="form-error"></p>
+          </div>
+
+          <!-- honeypot：人は入力しない隠しフィールド -->
+          <div class="hp-field" aria-hidden="true">
+            <label for="website">この欄には入力しないでください</label>
+            <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+          </div>
+
+          <div class="form-field" data-field="consent">
+            <label class="form-consent" for="consent">
+              <input type="checkbox" id="consent" name="consent" required>
+              <span><a href="../privacy/" style="text-decoration: underline;">プライバシーポリシー</a>に同意します<span class="required">必須</span></span>
+            </label>
+            <p class="form-error"></p>
+          </div>
+
+          <p style="margin-top: 48px;">
+            <button type="submit" class="form-submit">送信する</button>
+          </p>
+        </form>
+
+        <div id="form-result" class="form-result" role="status">
+          <p class="poem">お問い合わせを受け付けました。
+内容を確認のうえ、担当者よりご連絡いたします。</p>
+        </div>
+
+        <hr class="rule">
+
+        <p style="font-size: 0.9rem;">メールでのご連絡は <a data-contact-email style="text-decoration: underline;"></a> まで。</p>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-identity">
+        <p class="footer-logo">
+          <svg width="22" height="22" viewBox="0 0 32 32" aria-hidden="true"><path d="M6 23 A10 10 0 0 1 26 23" fill="none" stroke="#A8845C" stroke-width="1.6"/></svg>
+          <span data-company-name>株式会社TRY'S</span>
+        </p>
+        <p>〒102-0072 東京都千代田区飯田橋1-7-4 2階</p>
+        <p class="footer-note" style="margin-top: 12px;">Shot Navi 正規代理店</p>
+      </div>
+      <nav class="footer-nav" aria-label="フッターナビゲーション">
+        <ul>
+          <li><a href="../about/">ABOUT</a></li>
+          <li><a href="../business/">BUSINESS</a></li>
+          <li><a href="../brands/">BRANDS</a></li>
+          <li><a href="../company/">COMPANY</a></li>
+          <li><a href="./">CONTACT</a></li>
+          <li><a class="link-external" data-link-smeg-stories>SMEG STORIES を見る</a></li>
+          <li><span class="footer-note">TRY'S STORE（準備中）</span></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="footer-sub">
+      <a href="../privacy/">プライバシーポリシー</a>
+      <p class="footer-note">&copy; 2026 <span data-company-name>株式会社TRY'S</span></p>
+    </div>
+  </footer>
+
+  <script src="../assets/js/site.js"></script>
+  <script src="../assets/js/contact.js"></script>
+</body>
+</html>
