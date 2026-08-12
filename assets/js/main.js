@@ -1,51 +1,42 @@
 /* =========================================================
    TRY'S Inc. — main.js
+   ローディング / ヘッダー / スクロール演出 / ON・OFF切替 / お問い合わせフォーム
    ========================================================= */
 (function () {
   'use strict';
 
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  /* ---------- loader ---------- */
+  /* ---------- loader（トップページのみ） ---------- */
   window.addEventListener('load', function () {
     var loader = document.getElementById('loader');
     if (!loader) return;
     setTimeout(function () { loader.classList.add('is-done'); }, reduceMotion ? 0 : 900);
   });
 
-  /* ---------- header state / scroll progress / current nav ---------- */
+  /* ---------- header state / scroll progress ---------- */
   var header = document.getElementById('header');
   var bar = document.getElementById('scrollBar');
-  var sections = Array.prototype.slice.call(document.querySelectorAll('main section[id]'));
-  var navLinks = Array.prototype.slice.call(document.querySelectorAll('.nav__list a'));
+  var topVisual = document.querySelector('.hero, .page-hero');
   var ticking = false;
 
   function onScroll() {
     var y = window.scrollY || window.pageYOffset;
-    var hero = document.getElementById('hero');
-    var threshold = hero ? hero.offsetHeight - 90 : 200;
+    var threshold = topVisual ? topVisual.offsetHeight - 90 : 120;
 
-    header.classList.toggle('is-solid', y > threshold);
+    if (header) header.classList.toggle('is-solid', y > threshold);
 
     if (bar) {
       var max = document.documentElement.scrollHeight - window.innerHeight;
       bar.style.width = (max > 0 ? (y / max) * 100 : 0) + '%';
     }
-
-    var currentId = '';
-    sections.forEach(function (sec) {
-      if (y >= sec.offsetTop - window.innerHeight * 0.4) currentId = sec.id;
-    });
-    navLinks.forEach(function (a) {
-      a.classList.toggle('is-current', a.getAttribute('href') === '#' + currentId);
-    });
-
     ticking = false;
   }
 
   window.addEventListener('scroll', function () {
     if (!ticking) { window.requestAnimationFrame(onScroll); ticking = true; }
   }, { passive: true });
+  window.addEventListener('resize', onScroll);
   onScroll();
 
   /* ---------- mobile nav ---------- */
@@ -53,7 +44,7 @@
   var nav = document.getElementById('nav');
 
   function closeNav() {
-    if (!nav.classList.contains('is-open')) return;
+    if (!nav || !nav.classList.contains('is-open')) return;
     nav.classList.remove('is-open');
     burger.classList.remove('is-open');
     burger.setAttribute('aria-expanded', 'false');
@@ -94,20 +85,65 @@
     targets.forEach(function (el) { el.classList.add('is-in'); });
   }
 
-  /* ---------- ON / OFF switch (business) ---------- */
+  /* ---------- ON / OFF switch（BUSINESSページ） ---------- */
   var swtch = document.querySelector('.switch');
   if (swtch) {
     var buttons = swtch.querySelectorAll('.switch__btn');
     var panels = document.querySelectorAll('.panel');
-    swtch.setAttribute('data-state', 'on');
+
+    function activate(target) {
+      swtch.setAttribute('data-state', target);
+      buttons.forEach(function (b) { b.classList.toggle('is-active', b.dataset.target === target); });
+      panels.forEach(function (p) { p.classList.toggle('is-active', p.dataset.panel === target); });
+    }
 
     buttons.forEach(function (btn) {
-      btn.addEventListener('click', function () {
-        var target = btn.dataset.target;
-        swtch.setAttribute('data-state', target);
-        buttons.forEach(function (b) { b.classList.toggle('is-active', b === btn); });
-        panels.forEach(function (p) { p.classList.toggle('is-active', p.dataset.panel === target); });
-      });
+      btn.addEventListener('click', function () { activate(btn.dataset.target); });
+    });
+
+    /* index.html から #off で遷移してきた場合は OFF を開く */
+    activate(location.hash === '#off' ? 'off' : 'on');
+    window.addEventListener('hashchange', function () {
+      if (location.hash === '#off' || location.hash === '#on') {
+        activate(location.hash.slice(1));
+      }
+    });
+  }
+
+  /* ---------- contact form ---------- */
+  /* action 属性が設定されていない間は、入力内容からメールを組み立てて送信します。
+     外部フォームサービス（Formspree 等）を使う場合は <form> に action と method を追加してください。 */
+  var form = document.getElementById('contactForm');
+  if (form) {
+    form.addEventListener('submit', function (e) {
+      if (form.getAttribute('action')) return;
+      e.preventDefault();
+
+      if (!form.reportValidity()) return;
+
+      var get = function (name) {
+        var el = form.elements[name];
+        return el ? el.value.trim() : '';
+      };
+
+      var subject = '【お問い合わせ】' + (get('type') || 'その他');
+      var lines = [
+        'お問い合わせ種別：' + get('type'),
+        '会社名・団体名：' + get('company'),
+        'お名前：' + get('name'),
+        'メールアドレス：' + get('email'),
+        '電話番号：' + get('tel'),
+        '',
+        'お問い合わせ内容：',
+        get('body'),
+        '',
+        '---',
+        '株式会社TRY\'S ウェブサイトのお問い合わせフォームより送信'
+      ];
+
+      window.location.href = 'mailto:morikawa@trys-inc.co.jp'
+        + '?subject=' + encodeURIComponent(subject)
+        + '&body=' + encodeURIComponent(lines.join('\n'));
     });
   }
 

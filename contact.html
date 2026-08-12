@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CONTACT ｜ お問い合わせ ｜ 株式会社TRY'S</title>
+<meta name="description" content="株式会社TRY'Sへのお問い合わせ。お取扱い・お取引のご相談、自社開発製品やOEM・共同開発のご提案、メディア掲載のご依頼を承ります。">
+<meta name="theme-color" content="#111f3d">
+<link rel="canonical" href="https://www.trys-inc.co.jp/contact.html">
+
+<meta property="og:type" content="article">
+<meta property="og:title" content="CONTACT ｜ お問い合わせ ｜ 株式会社TRY'S">
+<meta property="og:description" content="株式会社TRY'Sへのお問い合わせ。お取扱い・お取引のご相談、自社開発製品やOEM・共同開発のご提案、メディア掲載のご依頼を承ります。">
+<meta property="og:url" content="https://www.trys-inc.co.jp/contact.html">
+<meta property="og:site_name" content="株式会社TRY'S">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&family=Noto+Sans+JP:wght@300;400;500&family=Noto+Serif+JP:wght@300;400;600&display=swap" rel="stylesheet">
+
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<div class="grain" aria-hidden="true"></div>
+<div class="scroll-progress" aria-hidden="true"><span id="scrollBar"></span></div>
+
+<header class="header" id="header">
+  <a class="header__logo" href="index.html" aria-label="株式会社TRY'S ホーム">
+    <svg class="header__mark" viewBox="0 0 120 130" fill="none" aria-hidden="true"><path d="M22 120 C22 52 34 24 74 28" stroke="currentColor" stroke-width="11" stroke-linecap="round"/></svg>
+    <span class="header__word">TRY'S</span>
+  </a>
+
+  <nav class="nav" id="nav" aria-label="メインメニュー">
+    <ul class="nav__list">
+        <li><a href="about.html"><i>01</i>ABOUT</a></li>
+        <li><a href="business.html"><i>02</i>BUSINESS</a></li>
+        <li><a href="original.html"><i>03</i>ORIGINAL</a></li>
+        <li><a href="company.html"><i>04</i>COMPANY</a></li>
+        <li><a href="contact.html" class="is-current"><i>05</i>CONTACT</a></li>
+    </ul>
+    <div class="nav__foot">
+      <a href="mailto:morikawa@trys-inc.co.jp">morikawa@trys-inc.co.jp</a>
+      <p>〒102-0072 東京都千代田区飯田橋1-7-4 2階</p>
+    </div>
+  </nav>
+
+  <button class="burger" id="burger" aria-label="メニューを開く" aria-expanded="false" aria-controls="nav">
+    <span></span><span></span>
+  </button>
+</header>
+
+<main id="top">
+  <section class="page-hero">
+    <svg class="page-hero__mark" viewBox="0 0 120 130" fill="none" aria-hidden="true"><path d="M22 120 C22 52 34 24 74 28" stroke="currentColor" stroke-width="11" stroke-linecap="round"/></svg>
+    <div class="page-hero__inner container">
+      <p class="page-hero__num" data-reveal>05</p>
+      <h1 class="page-hero__title" data-reveal data-delay="1">CONTACT</h1>
+      <p class="page-hero__jp" data-reveal data-delay="2">お問い合わせ</p>
+      <p class="page-hero__lead" data-reveal data-delay="3">お取扱い・お取引のご相談、自社開発製品や共同開発のご提案、メディア掲載のご依頼など、<br>お気軽にお問い合わせください。</p>
+    </div>
+  </section>
+
+  <nav class="breadcrumb" aria-label="パンくずリスト">
+    <div class="container">
+      <ol>
+        <li><a href="index.html">HOME</a></li>
+        <li>CONTACT</li>
+      </ol>
+    </div>
+  </nav>
+
+  <section class="section">
+    <div class="container">
+      <form class="form" id="contactForm" novalidate>
+        <div class="form__row">
+          <label for="type">お問い合わせ種別 <em>*</em></label>
+          <select id="type" name="type" required>
+            <option value="">選択してください</option>
+            <option>取扱い・お取引について</option>
+            <option>自社開発製品・OEM・共同開発について</option>
+            <option>製品・修理・サポートについて</option>
+            <option>メディア・取材について</option>
+            <option>その他</option>
+          </select>
+        </div>
+
+        <div class="form__row">
+          <label for="company">会社名・団体名</label>
+          <input type="text" id="company" name="company" autocomplete="organization" placeholder="株式会社○○">
+        </div>
+
+        <div class="form__row">
+          <label for="name">お名前 <em>*</em></label>
+          <input type="text" id="name" name="name" required autocomplete="name" placeholder="山田 太郎">
+        </div>
+
+        <div class="form__row">
+          <label for="email">メールアドレス <em>*</em></label>
+          <input type="email" id="email" name="email" required autocomplete="email" placeholder="mail@example.com">
+        </div>
+
+        <div class="form__row">
+          <label for="tel">電話番号</label>
+          <input type="tel" id="tel" name="tel" autocomplete="tel" placeholder="03-0000-0000">
+        </div>
+
+        <div class="form__row">
+          <label for="body">お問い合わせ内容 <em>*</em></label>
+          <textarea id="body" name="body" required placeholder="お問い合わせ内容をご記入ください"></textarea>
+        </div>
+
+        <p class="form__note">
+          ご記入いただいた個人情報は、お問い合わせへの対応のみに使用します。<br>
+          送信ボタンを押すとメールソフトが起動し、入力内容が本文に反映されます。うまく起動しない場合は
+          <a href="mailto:morikawa@trys-inc.co.jp" style="border-bottom:1px solid var(--line)">morikawa@trys-inc.co.jp</a>
+          まで直接ご連絡ください。
+        </p>
+
+        <div class="form__submit">
+          <button class="btn btn--ink" type="submit"><span>SEND</span><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <section class="section section--tight" style="background:var(--navy-deep);color:var(--cream)">
+    <div class="container">
+      <ul class="contact-info">
+        <li data-reveal>
+          <h3>MAIL</h3>
+          <p><a href="mailto:morikawa@trys-inc.co.jp">morikawa@trys-inc.co.jp</a></p>
+        </li>
+        <li data-reveal data-delay="1">
+          <h3>ADDRESS</h3>
+          <p>〒102-0072<br>東京都千代田区飯田橋1-7-4 2階</p>
+        </li>
+        <li data-reveal data-delay="2">
+          <h3>COMPANY</h3>
+          <p>株式会社TRY'S<br>代表取締役　森川 陽太郎</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="container footer__inner">
+    <div class="footer__brand">
+      <svg class="footer__mark" viewBox="0 0 120 130" fill="none" aria-hidden="true"><path d="M22 120 C22 52 34 24 74 28" stroke="currentColor" stroke-width="11" stroke-linecap="round"/></svg>
+      <p>株式会社TRY'S</p>
+    </div>
+    <div class="footer__map">
+      <div class="footer__col">
+        <h4>SITE MAP</h4>
+        <ul>
+          <li><a href="index.html">HOME</a></li>
+          <li><a href="about.html">ABOUT</a></li>
+          <li><a href="business.html">BUSINESS</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>&nbsp;</h4>
+        <ul>
+          <li><a href="original.html">ORIGINAL</a></li>
+          <li><a href="company.html">COMPANY</a></li>
+          <li><a href="contact.html">CONTACT</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h4>CONTACT</h4>
+        <ul>
+          <li><a href="mailto:morikawa@trys-inc.co.jp">morikawa@trys-inc.co.jp</a></li>
+          <li><a href="company.html">〒102-0072 東京都千代田区飯田橋1-7-4 2階</a></li>
+        </ul>
+      </div>
+    </div>
+    <small class="footer__copy">&copy; <span id="year">2026</span> TRY'S Inc. All rights reserved.</small>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>
