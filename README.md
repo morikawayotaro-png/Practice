@@ -36,7 +36,6 @@ scripts/precheck.mjs    公開前チェック（第12章）
 
 | 項目 | 内容 |
 |---|---|
-| `links.smegStories` | SMEG STORIES の正式URL |
 | `links.smegOnlineStore` | SMEG オンラインストアのURL |
 | `links.trysStore` | TRY'S STORE のURL（開店後） |
 | `contactEndpoint` | フォーム送信API（Resend / SendGrid 等）。未設定の間はメール作成にフォールバック |

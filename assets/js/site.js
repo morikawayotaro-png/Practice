@@ -9,8 +9,7 @@ window.siteConfig = {
   emailUser: "info",
   emailDomain: "trys-inc.co.jp",
   links: {
-    // SMEG STORIES は別ドメインで運営中。公開前に正式URLを設定する。
-    smegStories: "",
+    smegStories: "https://smeg-stories.com",
     // SMEG オンラインストアのURL。公開前に設定する。
     smegOnlineStore: "",
     // TRY'S STORE は準備中（第8章）。開店後にURLを設定するとボタンが有効になる。
