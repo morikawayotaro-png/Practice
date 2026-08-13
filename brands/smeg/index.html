@@ -34,9 +34,14 @@
 
   <main>
 
-    <!-- ヒーロー：撮り下ろしカット A-5（夕方の光の中のキッチン。ケトルかトースターが1点） -->
+    <!-- ヒーロー：カット A-5（夕方の光の中のキッチン。ケトルが1点） -->
     <section class="hero hero--page">
-      <div class="hero-media" data-cut="A-5" aria-hidden="true"></div>
+      <div class="hero-media" aria-hidden="true">
+        <picture>
+          <source media="(max-width: 767px)" srcset="../../assets/img/A-5_smeg_hero_4x5.jpg">
+          <img src="../../assets/img/A-5_smeg_hero_16x9.jpg" alt="" width="2560" height="1440">
+        </picture>
+      </div>
       <div class="hero-inner">
         <p class="hero-title poem" style="font-size: 1.4rem;">朝のための家電ではなく、
 一日を終えた台所のための家電。</p>
@@ -84,9 +89,9 @@
              撮り下ろし（カット A-6）を上段、SMEG公式素材を下段に分け、同一セクション内でも
              グリッドを分離して光の質の違いを混在させない（第9章） -->
         <div class="card-grid card-grid--3" style="margin-top: 72px;">
-          <div class="photo photo--1x1 fade" data-cut="A-6" role="img" aria-label="SMEG ディテール写真 1"></div>
-          <div class="photo photo--1x1 fade" data-cut="A-6" role="img" aria-label="SMEG ディテール写真 2"></div>
-          <div class="photo photo--1x1 fade" data-cut="A-6" role="img" aria-label="SMEG ディテール写真 3"></div>
+          <div class="photo photo--1x1 has-img fade"><img src="../../assets/img/A-6_detail_dial.jpg" alt="ダイヤルの寄り" loading="lazy"></div>
+          <div class="photo photo--1x1 has-img fade"><img src="../../assets/img/A-6_detail_handle.jpg" alt="ハンドルの寄り" loading="lazy"></div>
+          <div class="photo photo--1x1 has-img fade"><img src="../../assets/img/A-6_detail_texture.jpg" alt="素材の質感の寄り" loading="lazy"></div>
         </div>
         <div class="card-grid card-grid--3" style="margin-top: 40px;">
           <div class="photo photo--1x1 fade" data-cut="SMEG公式" role="img" aria-label="SMEG 公式プロダクト写真 1"></div>
@@ -195,6 +200,8 @@
 
     <section class="section">
       <div class="container" style="text-align: center;">
+        <!-- カット A-7：暮らしのシーン -->
+        <div class="photo photo--3x2 has-img fade" style="max-width: 780px; margin: 0 auto 64px;"><img src="../../assets/img/A-7_lifestyle_3x2.jpg" alt="日没後のワインとグラス" loading="lazy"></div>
         <p class="poem fade" style="font-size: 1.2rem;">SMEGのある暮らしを、愛用者のことばで。</p>
         <p class="fade" style="max-width: 680px; margin: 40px auto 0; text-align: left;">SMEG STORIESは、TRY'Sが企画・運営するライフスタイルメディアです。実際にSMEGと暮らす人たちの話を起点に、選ぶための手がかりを届けています。</p>
         <p class="fade" style="margin-top: 48px; display: flex; gap: 24px; justify-content: center; flex-wrap: wrap;">

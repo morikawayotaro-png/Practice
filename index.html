@@ -50,9 +50,14 @@
 
   <main>
 
-    <!-- ヒーロー：撮り下ろしカット A-1（夕方の窓辺の台所）に差し替える -->
-    <section class="hero">
-      <div class="hero-media" data-cut="A-1" aria-hidden="true"></div>
+    <!-- ヒーロー：カット A-1（夕方の窓辺の台所） -->
+    <section class="hero hero--left">
+      <div class="hero-media" aria-hidden="true">
+        <picture>
+          <source media="(max-width: 767px)" srcset="assets/img/A-1_hero_4x5.jpg">
+          <img src="assets/img/A-1_hero_16x9.jpg" alt="" width="2560" height="1440">
+        </picture>
+      </div>
       <div class="hero-inner">
         <h1 class="hero-title poem">昨日より上質な時を</h1>
         <p class="hero-wordmark">TRY'S</p>
@@ -60,8 +65,10 @@
       <span class="hero-scroll" aria-hidden="true"></span>
     </section>
 
-    <!-- ステートメント帯：撮り下ろしカット A-2 を背景に敷く -->
-    <section class="section section--dark">
+    <!-- ステートメント帯：カット A-2 を背景に敷く -->
+    <section class="section section--dark section--photo-bg">
+      <img class="bg-img" src="assets/img/A-2_statement_16x9.jpg" alt="" loading="lazy">
+      <div class="bg-scrim" aria-hidden="true"></div>
       <div class="container container--poem">
         <p class="poem fade">夜が来る前の、あの光の中で。
 
@@ -130,15 +137,13 @@
           <h2>選ぶに値するものだけを。</h2>
         </div>
         <div class="card-grid card-grid--2">
-          <!-- 撮り下ろしカット A-4：SMEG製品の静物 -->
           <a class="card fade" href="brands/smeg/">
-            <div class="photo photo--3x2" data-cut="A-4" role="img" aria-label="SMEG 製品写真"></div>
+            <div class="photo photo--3x2 has-img"><img src="assets/img/A-4_brands_still_3x2.jpg" alt="夕方の光の中のケトルの静物" loading="lazy"></div>
             <h3>SMEG</h3>
             <p class="card-note">イタリアのキッチン家電。</p>
           </a>
-          <!-- 撮り下ろしカット A-4：Shot Navi機器の静物（同じ光・同じ質感で撮る） -->
           <a class="card fade" href="brands/shot-navi/">
-            <div class="photo photo--3x2" data-cut="B-2" role="img" aria-label="Shot Navi 製品写真"></div>
+            <div class="photo photo--3x2 has-img"><img src="assets/img/B-2_detail_watch.jpg" alt="腕時計型距離計の文字盤とベルトの寄り" loading="lazy"></div>
             <h3>Shot Navi</h3>
             <p class="card-note">日本のゴルフ用距離計測器。</p>
           </a>
