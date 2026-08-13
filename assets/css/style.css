@@ -392,6 +392,8 @@ body:not(.has-hero) .site-header { color: var(--ink); }
   margin-bottom: 18px;
   font-variant-numeric: lining-nums;
 }
+/* 「G II」の2文字のみ字間を詰める（修正指示 2） */
+.product-name .model-ii { letter-spacing: -0.02em; }
 .product-copy {
   font-family: var(--font-serif);
   letter-spacing: 0.08em;
@@ -419,6 +421,7 @@ body:not(.has-hero) .site-header { color: var(--ink); }
   font-family: var(--font-sans);
   font-variant-numeric: lining-nums tabular-nums;
   font-feature-settings: "lnum" 1;
+  letter-spacing: 0.02em;
   margin-bottom: 24px;
 }
 .product-price .tax { font-size: 0.8rem; margin-left: 0.4em; }

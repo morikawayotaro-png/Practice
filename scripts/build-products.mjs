@@ -43,11 +43,15 @@ const renderSpecs = (specs) =>
     .map(([k, v]) => `          <tr><th scope="row">${esc(k)}</th><td>${esc(v)}</td></tr>`)
     .join("\n");
 
+// 「G II」等の末尾ローマ数字（半角2文字）は、字間を詰めて組む（修正指示 2）
+const displayName = (name) =>
+  esc(name).replace(/ II$/, ' <span class="model-ii">II</span>');
+
 const renderProduct = (p) => `    <article class="product fade" id="${esc(p.id)}">
 ${renderPlate(p)}
       <div class="product-body">
         <span class="label product-cat">${esc(p.category)}</span>
-        <h3 class="product-name" lang="en">${esc(p.name)}</h3>
+        <h3 class="product-name" lang="en">${displayName(p.name)}</h3>
         <p class="product-copy">${esc(p.copy)}</p>
         <p class="product-desc">${esc(p.description)}</p>
         <table class="spec-table">
