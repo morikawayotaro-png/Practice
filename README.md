@@ -51,23 +51,29 @@ bash scripts/precheck.sh
 
 `assets/js/site.js` の `siteConfig`:
 
-- `urls.smegStories` — SMEG STORIES の正式URL（未設定の間、リンクは自動で非活性表示）
-- `urls.smegOnlineStore` — SMEGオンラインストアのURL
+- `urls.smegStories` — 設定済み（https://smeg-stories.com）
+- `urls.smegOnlineStore` — SMEGオンラインストアのURL（未設定の間、リンクは自動で非活性表示）
 - `urls.trysStore` — TRY'S STORE（開店後に設定。それまで「準備中」表示）
 - `contactEndpoint` — フォーム送信API（Resend / SendGrid 等）。未設定の間は info@ 宛のメール案内にフォールバック
 
 社名・連絡先はすべて `siteConfig` から出力する（表記ゆれ防止／v1.2確定）。
 
+## 決定事項（2026-08-13）
+
+- 「〜ではなく」構文はステートメント詩文・SMEGヒーロー・SHOTLYZERの3か所を維持（詩文は上限2回のカウント外）
+- `/about/` のチーム面は写真なしで構成する（A-3の撮影・配置は行わない）
+- VELLIX v14／EXCEEDS／SHOTLYZER／INSOLYIS のタイポグラフィプレート表示を承認
+- SMEG STORIES のURLは https://smeg-stories.com
+- PRECIS LM は発売済みを確認。掲載を継続
+
 ## 公開までの残作業（v1.4 第12章より）
 
-- [ ] A-3 経営陣ポートレート3枚組の撮影と `/about/` への配置
 - [ ] 画像のWebP変換（現状はJPEG。この環境に変換ツールがないため未実施）
-- [ ] テクタイトから正式な取扱機種リスト・価格表（メーカー希望小売価格）・商品画像・ブランドアセットを取り寄せ、JSONへ反映
-      （VELLIX v14／EXCEEDS／SHOTLYZER／INSOLYIS はタイポグラフィのプレートで仮置き中。
-        黒背景の公式素材は背景をアイボリー #F5F1E8 に置換して彩度を落とす）
+- [ ] テクタイトから正式な取扱機種リスト・価格表（メーカー希望小売価格）を取り寄せ、JSONと照合
+      （VELLIX v14／EXCEEDS／SHOTLYZER／INSOLYIS のタイポグラフィプレート表示は承認済み。
+        後日公式素材へ差し替える場合は、黒背景を アイボリー #F5F1E8 に置換して彩度を落とす）
 - [ ] 「正規代理店」の表記・掲載位置についてテクタイトの了承
 - [ ] 横峯さくらに触れる一文（/brands/shot-navi/「なぜ扱うのか」）の掲出可否確認
-- [ ] PRECIS LM（2026年8月上旬発売）の発売済み確認。未発売なら掲載を外す
 - [ ] DNS・info@ メール・SPF／DKIM／DMARC 設定
 - [ ] プライバシーポリシーの専門家確認（第4項は導入する解析ツールに合わせて修正）
 - [ ] OGP画像の専用作成（現状はA-1ヒーロー写真を流用）
