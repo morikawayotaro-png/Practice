@@ -1,0 +1,110 @@
+{
+  "note": "型番・価格・仕様はテクタイト株式会社の公式データを唯一の出典とする。公開前に正式リストと照合すること（構築インプット v1.4 第4-6章・第13章）。更新はこのファイルの差し替えのみで行う。",
+  "categories": ["GPS WEARABLE", "LASER RANGEFINDER", "TRAINING GEAR"],
+  "products": [
+    {
+      "number": "01",
+      "category": "GPS WEARABLE",
+      "name": "VELLIX v14",
+      "copy": "白は、手入れの跡が最も正直に出る色。だから選ぶ。",
+      "description": "有機ELの発色が、芝の起伏をそのまま腕元へ写す。腕にあることを忘れる軽さで、日が落ちるまで静かに付き添う。",
+      "specs": [
+        { "label": "ディスプレイ", "value": "丸型 1.4インチ OLED" },
+        { "label": "操作", "value": "タッチパネル" },
+        { "label": "重量", "value": "44g" }
+      ],
+      "price": 44000
+    },
+    {
+      "number": "02",
+      "category": "GPS WEARABLE",
+      "name": "Evolve G II",
+      "copy": "距離を知ることは、迷いを手放すこと。",
+      "description": "際立つ丸型ベゼル。グローブをした指先でも、操作に迷いがない。読むのは数字。決めるのは、次の一打。",
+      "specs": [
+        { "label": "ディスプレイ", "value": "丸型 1.4インチ MIP" },
+        { "label": "操作", "value": "タッチパネル" },
+        { "label": "重量", "value": "53g" }
+      ],
+      "price": 33000
+    },
+    {
+      "number": "03",
+      "category": "GPS WEARABLE",
+      "name": "Crest G II",
+      "copy": "品格は、輪郭に宿る。",
+      "description": "樽形の輪郭は、装う悦びのための形だ。ラウンドを終えた袖口に、鈍い艶が残る。",
+      "specs": [
+        { "label": "ディスプレイ", "value": "トノー型 1.4インチ MIP" },
+        { "label": "操作", "value": "タッチパネル" },
+        { "label": "重量", "value": "55g" }
+      ],
+      "price": 33000
+    },
+    {
+      "number": "04",
+      "category": "GPS WEARABLE",
+      "name": "EXCEEDS",
+      "copy": "頂に置くものは、静かでなければならない。",
+      "description": "意匠から機能まで、削るところを削り、残すところを残した一台。所有して、育てる。手元の一台が、次の一打を静かにする。",
+      "specs": [
+        { "label": "ディスプレイ", "value": "丸型 1.4インチ MIP" },
+        { "label": "操作", "value": "タッチパネル" },
+        { "label": "重量", "value": "60g" }
+      ],
+      "price": 59950
+    },
+    {
+      "number": "05",
+      "category": "LASER RANGEFINDER",
+      "name": "GR LEO PRO",
+      "copy": "構えを崩さずに、距離だけを手にする。",
+      "description": "声で計測を始められるから、握りは緩まない。誤差は±30cm。正確さとは、静けさの別名である。",
+      "specs": [
+        { "label": "測定誤差", "value": "±30cm" },
+        { "label": "測定範囲", "value": "1.0〜999.9yd" },
+        { "label": "表示", "value": "緑・赤色OLED" }
+      ],
+      "price": 59950
+    },
+    {
+      "number": "06",
+      "category": "LASER RANGEFINDER",
+      "name": "PRECIS LM",
+      "copy": "練習場の午後と、コースの夕方を、同じ一台で。",
+      "description": "距離を測る眼と、速さを測る眼。持ち物を増やさずに、知ることだけを増やす。手入れの行き届いた金属の、鈍い光。",
+      "specs": [
+        { "label": "測定誤差", "value": "±20cm" },
+        { "label": "測定範囲", "value": "3.3〜2,000.0yd" },
+        { "label": "表示", "value": "緑・赤色OLED" }
+      ],
+      "price": 49940
+    },
+    {
+      "number": "07",
+      "category": "TRAINING GEAR",
+      "name": "SHOTLYZER",
+      "copy": "感覚を疑うためではなく、確かめるために。",
+      "description": "ヘッドスピード、ボールスピード、ミート率。振り終えた後の余韻を、静かに数字へ替える。自室から世界のコースを呼ぶこともできる。",
+      "specs": [
+        { "label": "センサー", "value": "ドップラーレイダー" },
+        { "label": "本体重量", "value": "約100g" },
+        { "label": "稼働時間", "value": "約7時間" }
+      ],
+      "price": 24200
+    },
+    {
+      "number": "08",
+      "category": "TRAINING GEAR",
+      "name": "INSOLYIS",
+      "copy": "スイングは、足の裏から始まっている。",
+      "description": "四つの圧力センサーが、足圧重心の移動を描き出す。靴の中に忍ばせるだけ。整えるべきは上体ではなかったと、静かに気づく。",
+      "specs": [
+        { "label": "対応サイズ", "value": "23〜28.5cm" },
+        { "label": "本体重量", "value": "約45g" },
+        { "label": "稼働日数", "value": "25日" }
+      ],
+      "price": 39600
+    }
+  ]
+}
