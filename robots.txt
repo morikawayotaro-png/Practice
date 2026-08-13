@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://trys-inc.co.jp/sitemap.xml
