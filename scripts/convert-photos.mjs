@@ -20,6 +20,8 @@ if (!existsSync(SRC)) {
 
 function walk(dir, out = []) {
   for (const name of readdirSync(dir)) {
+    // アンダースコア始まり（photos/_pending/ など）は変換しない＝公開しない
+    if (name.startsWith('_')) continue;
     const full = join(dir, name);
     if (statSync(full).isDirectory()) walk(full, out);
     else if (INPUT.test(name)) out.push(full);

@@ -23,7 +23,12 @@ const stories = (await getCollection('stories')).sort((a, b) => a.data.order - b
       />
     </p>
 
-    <PhotoSlot alt="{{要確認: 試合中の写真のalt（誰が何をしている写真か）}}" />
+    <PhotoSlot
+      src="/photos/challenge/reading-green.webp"
+      alt="グリーンにしゃがみ込んでパットのラインを読む横峯さくら"
+      width={1600}
+      height={1068}
+    />
 
     <section class="mt-12" aria-labelledby="now-heading">
       <h2 id="now-heading" class="text-xl">永久シードの現在地はどこか</h2>

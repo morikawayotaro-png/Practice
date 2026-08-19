@@ -6,6 +6,10 @@ lead: '{{要確認: 冒頭段落（誰が・何を・いつから・なぜ を4�
 order: 1
 publishDate: 2026-08-19
 updatedDate: 2026-08-19
+image: /photos/stories/airport-travel.webp
+imageAlt: ゴルフバッグとスーツケースを押して空港のロビーに立つ横峯さくら
+imageWidth: 1600
+imageHeight: 1067
 related:
   - href: /stories/childcare-on-tour
     label: ツアーに託児所を

@@ -1,5 +1,6 @@
 ---
 import BaseLayout from './BaseLayout.astro';
+import PhotoSlot from '../components/PhotoSlot.astro';
 import RelatedLinks from '../components/RelatedLinks.astro';
 import Pending from '../components/Pending.astro';
 import UpdatedDate from '../components/UpdatedDate.astro';
@@ -16,6 +17,8 @@ interface Props {
   slug: string;
   image?: string;
   imageAlt?: string;
+  imageWidth?: number;
+  imageHeight?: number;
 }
 
 const {
@@ -28,6 +31,9 @@ const {
   related,
   slug,
   image,
+  imageAlt,
+  imageWidth,
+  imageHeight,
 } = Astro.props;
 
 const published = publishDate.toISOString().slice(0, 10);
@@ -80,6 +86,18 @@ const articleSchema = {
     <p class="mt-8 border-l-4 border-sakura bg-white p-5 text-base leading-loose">
       <Pending text={lead} />
     </p>
+
+    {
+      image && imageAlt && (
+        <PhotoSlot
+          src={image}
+          alt={imageAlt}
+          width={imageWidth}
+          height={imageHeight}
+          class="mt-8"
+        />
+      )
+    }
 
     <div class="prose-jp mt-10">
       <slot />

@@ -6,6 +6,10 @@ lead: '{{要確認: 冒頭段落（永久シードの定義、必要勝利数、
 order: 4
 publishDate: 2026-08-19
 updatedDate: 2026-08-19
+image: /photos/stories/follow-through.webp
+imageAlt: ショットを打ち終えてフォロースルーの姿勢をとる横峯さくら
+imageWidth: 1093
+imageHeight: 1638
 related:
   - href: /challenge
     label: 今の挑戦

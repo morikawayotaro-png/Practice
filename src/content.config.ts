@@ -41,6 +41,8 @@ const stories = defineCollection({
     updatedDate: z.coerce.date().optional(),
     image: z.string().optional(),
     imageAlt: z.string().optional(),
+    imageWidth: z.number().optional(),
+    imageHeight: z.number().optional(),
     /** 末尾の関連リンク。3本必須 */
     related: z.array(relatedLink).min(3),
   }),

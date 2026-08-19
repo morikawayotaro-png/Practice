@@ -29,7 +29,7 @@ export const SITE = {
     youtube: '',
   },
   /** OGP のデフォルト画像（public/ からのパス） */
-  defaultOgImage: '/ogp/default.png',
+  defaultOgImage: '/ogp/default.jpg',
   locale: 'ja_JP',
 } as const;
 

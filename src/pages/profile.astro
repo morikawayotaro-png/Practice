@@ -36,7 +36,14 @@ const personSchema = {
       <Pending text={PROFILE_SUMMARY} />
     </p>
 
-    <PhotoSlot alt="{{要確認: プロフィール写真のalt（誰が何をしている写真か）}}" />
+    <PhotoSlot
+      src="/photos/profile/portrait-smile.webp"
+      alt="EPSONのキャップをかぶり笑顔を見せる横峯さくら"
+      width={1600}
+      height={2400}
+      ratio="aspect-[4/5] sm:aspect-[3/2]"
+      position="object-[center_25%]"
+    />
 
     <section class="mt-12" aria-labelledby="basic-heading">
       <h2 id="basic-heading" class="text-xl">基本情報</h2>
