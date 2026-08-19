@@ -19,6 +19,13 @@ interface Props {
   imageAlt?: string;
   imageWidth?: number;
   imageHeight?: number;
+  gallery?: {
+    src: string;
+    alt: string;
+    width?: number;
+    height?: number;
+    caption?: string;
+  }[];
 }
 
 const {
@@ -34,6 +41,7 @@ const {
   imageAlt,
   imageWidth,
   imageHeight,
+  gallery,
 } = Astro.props;
 
 const published = publishDate.toISOString().slice(0, 10);
@@ -102,6 +110,26 @@ const articleSchema = {
     <div class="prose-jp mt-10">
       <slot />
     </div>
+
+    {
+      gallery && gallery.length > 0 && (
+        <section class="mt-14" aria-labelledby="gallery-heading">
+          <h2 id="gallery-heading" class="text-lg">ツアー中の写真</h2>
+          <div class="mt-4 grid gap-5 sm:grid-cols-2">
+            {gallery.map((photo) => (
+              <PhotoSlot
+                src={photo.src}
+                alt={photo.alt}
+                width={photo.width}
+                height={photo.height}
+                caption={photo.caption}
+                class="my-0"
+              />
+            ))}
+          </div>
+        </section>
+      )
+    }
 
     <RelatedLinks links={related} />
   </article>

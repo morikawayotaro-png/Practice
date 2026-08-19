@@ -10,6 +10,27 @@ image: /photos/stories/airport-travel.webp
 imageAlt: ゴルフバッグとスーツケースを押して空港のロビーに立つ横峯さくら
 imageWidth: 1600
 imageHeight: 1067
+gallery:
+  - src: /photos/stories/desert-course-pointing.webp
+    alt: サボテンが生えるコースのティーイングエリアで打つ方向を指す横峯さくら
+    width: 1600
+    height: 1200
+    caption: '{{要確認: この写真の撮影地と年月}}'
+  - src: /photos/stories/desert-course-wide.webp
+    alt: 山並みとサボテンが見えるコースのグリーンに立つ横峯さくら
+    width: 1600
+    height: 1200
+    caption: '{{要確認: この写真の撮影地と年月}}'
+  - src: /photos/stories/city-street-tower.webp
+    alt: タワーが見える街の交差点で笑顔を見せる横峯さくら
+    width: 1600
+    height: 1067
+    caption: '{{要確認: この写真の撮影地と年月}}'
+  - src: /photos/stories/city-street-portrait.webp
+    alt: 街路樹の並ぶ通りに立つ横峯さくら
+    width: 1600
+    height: 1067
+    caption: '{{要確認: この写真の撮影地と年月}}'
 related:
   - href: /stories/childcare-on-tour
     label: ツアーに託児所を

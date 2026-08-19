@@ -36,7 +36,11 @@ photos/
 | `profile/portrait-smile.jpg` | キャップ姿で笑顔の横峯さくら | `/profile` |
 | `challenge/reading-green.jpg` | グリーンでパットのラインを読む横峯さくら | `/challenge` |
 | `stories/follow-through.jpg` | フォロースルーの姿勢の横峯さくら | `/stories/eternal-seed` |
-| `stories/airport-travel.jpg` | ゴルフバッグとスーツケースを押して空港に立つ横峯さくら | `/stories/tour-life` |
+| `stories/airport-travel.jpg` | ゴルフバッグとスーツケースを押して空港に立つ横峯さくら | `/stories/tour-life`（本文写真） |
+| `stories/desert-course-pointing.jpg` | サボテンのコースで打つ方向を指す横峯さくら | `/stories/tour-life`（ギャラリー） |
+| `stories/desert-course-wide.jpg` | 山並みとサボテンが見えるコースのグリーン | `/stories/tour-life`（ギャラリー） |
+| `stories/city-street-tower.jpg` | タワーが見える街の交差点の横峯さくら | `/stories/tour-life`（ギャラリー） |
+| `stories/city-street-portrait.jpg` | 街路樹の並ぶ通りに立つ横峯さくら | `/stories/tour-life`（ギャラリー） |
 | `sakura-baton/figador-sumida-jersey.jpg` | SAKURA BATONのロゴが入った背番号4のユニフォーム | `/sakura-baton` |
 | `sponsors/golf-shoe.jpg` | ゴルフシューズを手に持つ横峯さくら | `/sponsors` |
 | `sponsors/smeg-sparkling-water.jpg` | SMEGのスパークリングウォーターメーカーと横峯さくら | `/sponsors` |
@@ -48,12 +52,12 @@ photos/
 |---|---|---|
 | `_pending/tour-life-beach.jpg` | 夕方の海辺を歩く横峯さくらと子ども | 子どもが写っている（CLAUDE.mdルール5） |
 | `_pending/illustration_v1.png` | フォロースルーの横位置ワイド画像 | 加工または生成画像の可能性があり、素材の出自を確認したい |
-| `_pending/desert-course-pointing.jpg` | 砂漠のコースで方向を指す後ろ姿 | 人物・撮影地・年月が未確認 |
-| `_pending/desert-course-wide.jpg` | 砂漠のコースの引きの風景 | 撮影地・年月が未確認 |
-| `_pending/street-portrait.jpg` | 海外の街路に立つポートレート | 撮影地・年月が未確認 |
-| `_pending/toronto-street.jpg` | タワーが見える街路のポートレート | 撮影地・年月が未確認 |
 
 公開する場合は `photos/` 側の通常フォルダへ移動し、`npm run photos` を実行してページに配置する。
+
+ギャラリーの4点はキャプションを `{{要確認: この写真の撮影地と年月}}` にしてある。
+撮影地と年月が分かったら `src/content/stories/tour-life.md` の `gallery` の
+`caption` を書き換える。
 
 ## まだ足りない写真
 

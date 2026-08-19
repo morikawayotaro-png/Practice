@@ -43,6 +43,19 @@ const stories = defineCollection({
     imageAlt: z.string().optional(),
     imageWidth: z.number().optional(),
     imageHeight: z.number().optional(),
+    /** 本文中のギャラリー写真 */
+    gallery: z
+      .array(
+        z.object({
+          src: z.string(),
+          /** 誰が何をしている写真かを日本語で */
+          alt: z.string(),
+          width: z.number().optional(),
+          height: z.number().optional(),
+          caption: z.string().optional(),
+        })
+      )
+      .optional(),
     /** 末尾の関連リンク。3本必須 */
     related: z.array(relatedLink).min(3),
   }),

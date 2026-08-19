@@ -4,6 +4,8 @@
  * photos/ に素材が入ったら <img> / <Image> に差し替える。
  * src を渡した場合は実画像を表示する（alt は必須）。
  */
+import Pending from './Pending.astro';
+
 interface Props {
   /** 誰が何をしている写真かを日本語で書いた alt */
   alt: string;
@@ -61,5 +63,11 @@ const {
       </div>
     )
   }
-  {caption && <figcaption class="mt-2 text-sm text-ink-soft">{caption}</figcaption>}
+  {
+    caption && (
+      <figcaption class="mt-2 text-sm text-ink-soft">
+        <Pending text={caption} />
+      </figcaption>
+    )
+  }
 </figure>
