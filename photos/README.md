@@ -63,11 +63,11 @@ EXIFの回転は自動補正する。長辺は `hero/` が2000px、それ以外�
 | `comeback/with-child-grass.jpg` | 草地で子どもと顔を寄せて笑う横峯さくら | `/stories/comeback`（本文写真） |
 | `childcare-on-tour/practice-range-with-child.jpg` | 練習場で子どものスイングに手を添える横峯さくら | `/stories/childcare-on-tour`（本文写真） |
 | `stories/walking-with-child.jpg` | 子どもと手をつないで歩く横峯さくら | `/stories/tour-life`（ギャラリー） |
-| `sakura-baton/talking-to-children.jpg` | フットサルクラブの子どもたちに話す横峯さくら | `/sakura-baton`（本文写真） |
-| `sakura-baton/group-with-children.jpg` | フットサルクラブの子どもたちとの集合写真 | `/sakura-baton` |
+| `sakura-baton/talking-to-children.jpg` | フウガドールすみだの子どもたちに話す横峯さくら | `/sakura-baton`（本文写真） |
+| `sakura-baton/group-with-children.jpg` | フウガドールすみだの子どもたちとの集合写真 | `/sakura-baton`、ニュース記事 |
 | `sponsors/golf-bag.jpg` | ゴルフバッグからクラブを取り出す横峯さくら | `/sponsors`（用具） |
 | `sponsors/club-factory.jpg` | 工房でアイアンヘッドを確かめる横峯さくら | `/sponsors`（用具） |
-| `sakura-baton/figador-sumida-jersey.jpg` | SAKURA BATONのロゴが入った背番号4のユニフォーム | `/sakura-baton` |
+| `sakura-baton/fugador-sumida-jersey.jpg` | SAKURA BATONのロゴが入った背番号4のユニフォーム | `/sakura-baton` |
 | `sponsors/golf-shoe.jpg` | ゴルフシューズを手に持つ横峯さくら | `/sponsors` |
 | `sponsors/smeg-sparkling-water.jpg` | SMEGのスパークリングウォーターメーカーと横峯さくら | `/sponsors` |
 | `sponsors/smeg-kettle.jpg` | SMEGの電気ケトルを持つ横峯さくら | `/sponsors` |

@@ -1,6 +1,5 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import Pending from '../components/Pending.astro';
 import RelatedLinks from '../components/RelatedLinks.astro';
 import { PAGES } from '../data/pages';
 import { SITE } from '../data/site';
@@ -8,14 +7,20 @@ import { SITE } from '../data/site';
 const requests = [
   {
     title: 'スポンサーシップ',
-    body: '{{要確認: スポンサーシップで対応できる内容（ウェア・キャップのロゴ掲出、契約期間の考え方など）}}',
+    body: '横峯さくら個人へのスポンサードと、社会貢献プロジェクトSAKURA BATONへの協賛を受け付けています。ウェアやキャップへのロゴ掲出、広告出演、共同企画など、目的に合わせて内容を設計します。マネジメントはHERITAGE合同会社が担当しています。',
   },
   {
-    title: 'イベント出演・ゴルフレッスン',
-    body: '{{要確認: 出演・レッスンで対応できる内容}}',
+    title: 'イベント出演・レッスン',
+    body: 'ゴルフコンペへのゲスト参加、企業イベント出演、レッスン会を受け付けています。開催日・場所・内容をお知らせください。ツアー日程と調整のうえ回答します。',
   },
-  { title: '取材・メディア出演', body: '{{要確認: 取材やメディア出演の受付条件}}' },
-  { title: '講演', body: '{{要確認: 講演で話せるテーマと形式}}' },
+  {
+    title: '取材・メディア',
+    body: 'テレビ・雑誌・WEB媒体の取材および出演依頼を受け付けています。企画内容、放送・掲載時期、拘束時間をあわせてお知らせください。',
+  },
+  {
+    title: '講演',
+    body: '競技と子育ての両立、ツアー生活、目標への向き合い方をテーマにした講演を受け付けています。聴講対象と人数、希望テーマをお知らせください。',
+  },
 ];
 ---
 
@@ -39,9 +44,7 @@ const requests = [
           requests.map((item) => (
             <div class="py-4">
               <dt class="font-medium">{item.title}</dt>
-              <dd class="mt-1 text-sm leading-loose">
-                <Pending text={item.body} />
-              </dd>
+              <dd class="mt-1 text-sm leading-loose">{item.body}</dd>
             </div>
           ))
         }
@@ -53,16 +56,16 @@ const requests = [
       <div class="mt-4 border border-line bg-white p-6">
         <p class="font-medium">{SITE.contact.company}</p>
         <p class="mt-2 text-sm">
-          メール: <Pending text={SITE.contact.email} />
+          メール: <a href={`mailto:${SITE.contact.email}`} class="underline"
+            >{SITE.contact.email}</a
+          >
         </p>
-        <p class="mt-1 text-sm">
-          所在地: <Pending text={SITE.contact.address} />
-        </p>
+        <p class="mt-1 text-sm">所在地: {SITE.contact.address}</p>
       </div>
       <p class="mt-4 text-sm leading-loose">
-        <Pending
-          text="{{要確認: 連絡時に記載してほしい項目（希望日時、場所、内容、予算など）と、回答までの目安日数}}"
-        />
+        ご連絡の際は、会社名・担当者名／依頼内容／希望日時と場所／予算感をお書きください。回答は{
+          SITE.contact.replyTime
+        }を目安にしています。
       </p>
     </section>
 

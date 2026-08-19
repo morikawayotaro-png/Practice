@@ -52,24 +52,22 @@ const personSchema = {
 
     <section class="mt-12" aria-labelledby="en-career">
       <h2 id="en-career" class="text-xl">Career</h2>
-      <p class="mt-4 leading-loose">
-        <Pending text={PROFILE_EN.career} />
-      </p>
+      {
+        PROFILE_EN.career.map((paragraph) => (
+          <p class="mt-4 leading-loose">{paragraph}</p>
+        ))
+      }
     </section>
 
     <section class="mt-12" aria-labelledby="en-goal">
-      <h2 id="en-goal" class="text-xl">Current goal</h2>
-      <p class="mt-4 leading-loose">
-        <Pending text={PROFILE_EN.currentGoal} />
-      </p>
+      <h2 id="en-goal" class="text-xl">Off the course, and the goal ahead</h2>
+      <p class="mt-4 leading-loose">{PROFILE_EN.currentGoal}</p>
     </section>
 
     <section class="mt-12" aria-labelledby="en-contact">
       <h2 id="en-contact" class="text-xl">Contact</h2>
       <p class="mt-4 leading-loose">
-        For sponsorship, appearances and media enquiries, please contact {SITE.contact.company} (
-        <Pending text={SITE.contact.email} />
-        ).
+        {PROFILE_EN.contact} ({SITE.contact.email})
       </p>
     </section>
 

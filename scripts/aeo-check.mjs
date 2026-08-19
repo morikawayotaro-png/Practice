@@ -70,7 +70,7 @@ for (const route of routes) {
   // 2. H2が質問文の形か
   const h2s = [...main.matchAll(/<h2[^>]*>([\s\S]*?)<\/h2>/g)]
     .map((m) => stripTags(m[1]))
-    .filter((t) => t && !['関連ページ', '記録を読む'].includes(t));
+    .filter((t) => t && !['関連ページ', '記録を読む', 'ツアー中の写真'].includes(t));
   const questionLike = h2s.filter((t) => /(か|ですか|のか|何|どう|なぜ|いつ|どこ|誰)\s*$|[?？]$|か$/.test(t));
   const h2Ok = h2s.length > 0 && questionLike.length === h2s.length;
 

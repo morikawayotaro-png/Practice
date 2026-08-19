@@ -1,7 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
-import Pending from '../components/Pending.astro';
 import PhotoSlot from '../components/PhotoSlot.astro';
 import RelatedLinks from '../components/RelatedLinks.astro';
 import { PAGES } from '../data/pages';
@@ -18,9 +17,7 @@ const stories = (await getCollection('stories')).sort((a, b) => a.data.order - b
     <h1 class="text-2xl sm:text-3xl">今の挑戦</h1>
 
     <p class="mt-6 border-l-4 border-sakura bg-white p-5 leading-loose">
-      <Pending
-        text="{{要確認: 冒頭要約（何を目指しているのか、現在地はどこか、いつまでに何が必要かを4〜5文で。通算勝利数と必要勝利数を数字で書く）}}"
-      />
+横峯さくらが目指しているのは、JLPGAツアーの永久シード獲得。通算30勝を挙げた選手に与えられる生涯有効の出場資格で、これまでに獲得した女子選手は樋口久子さんら6人しかいない。横峯さくらの通算勝利数は23勝。あと7勝で到達する。2021年2月に出産したあとも家族とともにツアーを回りながら、この記録に挑み続けている。
     </p>
 
     <PhotoSlot
@@ -40,21 +37,21 @@ const stories = (await getCollection('stories')).sort((a, b) => a.data.order - b
     <section class="mt-12" aria-labelledby="now-heading">
       <h2 id="now-heading" class="text-xl">永久シードの現在地はどこか</h2>
       <p class="mt-4 leading-loose">
-        <Pending text="{{要確認: 答えを2〜3文で（通算勝利数、必要勝利数、直近の出場状況）}}" />
+通算23勝で、あと7勝。2004年のプロ転向から20年以上をかけて積み上げてきた数字で、現役選手では最も永久シードに近い位置のひとりにいる。
       </p>
     </section>
 
     <section class="mt-12" aria-labelledby="why-heading">
       <h2 id="why-heading" class="text-xl">なぜ今も挑戦を続けるのか</h2>
       <p class="mt-4 leading-loose">
-        <Pending text="{{要確認: 答えを2〜3文で}}" />
+米ツアー時代に、出産後もプレーする選手たちの姿から「競技を続ける」という選択肢を教わったから。今度は自分が挑戦する姿を見せることで、後輩の選手や同じ立場で迷っている人に選択肢を示したいと考えている。
       </p>
     </section>
 
     <section class="mt-12" aria-labelledby="plan-heading">
       <h2 id="plan-heading" class="text-xl">これから何に取り組むのか</h2>
       <p class="mt-4 leading-loose">
-        <Pending text="{{要確認: 答えを2〜3文で（出場計画、取り組んでいる練習・体づくり）}}" />
+家族と車で移動するツアー生活を保ちながら、年間を通じてJLPGAツアーに出場を続ける。体力面と技術面の両方を整え、優勝争いに絡む回数を増やしていく。
       </p>
     </section>
 

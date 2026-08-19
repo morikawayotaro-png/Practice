@@ -1,6 +1,6 @@
 /**
  * サイト全体で使う定数。
- * 事実情報はここに集約する。原稿が届いたら {{要確認}} を置き換える。
+ * 事実情報はここに集約する。原稿は docs/content-v2.md を正とする。
  */
 export const SITE = {
   url: 'https://yokomine-sakura.com',
@@ -10,16 +10,22 @@ export const SITE = {
   personNameEn: 'Sakura Yokomine',
   jobTitle: 'プロゴルファー',
   tagline: 'その姿が、誰かの選択肢になれたら',
-  /** トップページ本文の冒頭とトップの meta description に使う定義文 */
-  definition: '{{要確認: 定義文（docs/content-v2.md「定義文」の文章をそのまま入れる）}}',
+  /** トップページ本文の冒頭とトップの meta description に使う定義文（原稿A1） */
+  definition:
+    '横峯さくらは、2004年にプロ転向し、JLPGAツアーで通算23勝を挙げた日本のプロゴルファー。2021年の出産を経て同年5月にツアーへ復帰し、現在は永久シードの獲得を目指して競技を続けている。',
   /** 依頼窓口 */
   contact: {
     company: 'HERITAGE合同会社',
-    email: '{{要確認: 問い合わせ先メールアドレス}}',
+    email: 'yokomine.sakura.heritage@gmail.com',
     formUrl: '',
-    address: '{{要確認: HERITAGE合同会社の所在地}}',
+    address: '東京都千代田区飯田橋1-7-4 2階',
+    /** 回答までの目安 */
+    replyTime: '2営業日以内',
   },
-  /** JSON-LD の sameAs に入れる外部プロフィール。空文字のものは出力されない */
+  /**
+   * JSON-LD の sameAs に入れる外部プロフィール。空文字のものは出力されない。
+   * {{要確認: Wikipedia・JLPGA選手ページ・Instagram・アメブロ のURL（AI検索が本人と外部情報を紐づけるために必要）}}
+   */
   sameAs: {
     wikipedia: '',
     jlpga: '',

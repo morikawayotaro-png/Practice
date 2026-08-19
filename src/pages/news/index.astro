@@ -33,9 +33,7 @@ const news = (await getCollection('news', ({ data }) => !data.draft)).sort(
             />
           ))
         ) : (
-          <p class="py-6 text-sm text-ink-soft">
-            <Pending text="{{要確認: 掲載するニュース記事（src/content/news/ にMarkdownファイルを1つ追加すると記事が1本増える）}}" />
-          </p>
+          <p class="py-6 text-sm text-ink-soft">まだ記事はありません。</p>
         )
       }
     </div>

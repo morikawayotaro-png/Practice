@@ -1,6 +1,5 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import Pending from '../components/Pending.astro';
 import PhotoSlot from '../components/PhotoSlot.astro';
 import RelatedLinks from '../components/RelatedLinks.astro';
 import { PAGES } from '../data/pages';
@@ -8,15 +7,15 @@ import { PAGES } from '../data/pages';
 const pillars = [
   {
     name: '競技',
-    body: '{{要確認: 競技の柱の説明（何を目指し、何に取り組んでいるか）}}',
+    body: '通算30勝の永久シードに挑み続けること自体が、このプロジェクトの土台になっている。子育てをしながら競技を続ける姿を見せることが、後輩の選手や同じ立場で迷っている人への何よりの発信になると考えている。',
   },
   {
     name: '発信',
-    body: '{{要確認: 発信の柱の説明（何を、どこで、誰に向けて発信しているか）}}',
+    body: 'ツアーを回る暮らしや子育ての日々をInstagramなどで伝えている。飾らない日常を見せることで、「子どもがいても続けられる」という選択肢を届けることを心がけている。',
   },
   {
     name: '社会貢献',
-    body: '{{要確認: 社会貢献の柱の説明（どんな活動を、いつから、誰と）}}',
+    body: 'Sakura Birdie Fundによる寄付と、子どもたちのスポーツ環境への支援を行っている。',
   },
 ];
 ---
@@ -30,30 +29,28 @@ const pillars = [
     <h1 class="text-2xl sm:text-3xl">SAKURA BATON</h1>
 
     <p class="mt-6 border-l-4 border-sakura bg-white p-5 leading-loose">
-      <Pending
-        text="{{要確認: 冒頭要約（SAKURA BATONとは何か、いつから、何のための取り組みかを4〜5文で）}}"
-      />
+      SAKURA BATONは、横峯さくらが2024年に始めた社会貢献プロジェクト。競技・発信・社会貢献という3つの活動を一本の糸でつなぎ、自分がゴルフから受け取ってきたものを次の世代に渡していくことを目的にしている。名前には「バトンを渡す」という意味を込めた。
     </p>
 
     <PhotoSlot
       src="/photos/sakura-baton/talking-to-children.webp"
-      alt="フットサルのユニフォームを着た子どもたちに向かって話す横峯さくら"
+      alt="フウガドールすみだの子どもたちに向かって話す横峯さくら"
       width={1600}
       height={1067}
-      caption="{{要確認: この写真の説明（撮影年月、どの団体への支援か）}}"
+      caption="2026年4月撮影。SAKURA BATONが支援するフウガドールすみだの選手たちと。"
     />
 
     <div class="mt-4 grid gap-4 sm:grid-cols-2">
       <PhotoSlot
         src="/photos/sakura-baton/group-with-children.webp"
-        alt="SAKURA BATONのロゴが入ったユニフォームを持つ指導者と、フットサルクラブの子どもたちと並ぶ横峯さくら"
+        alt="SAKURA BATONのロゴが入ったユニフォームを持つ指導者と、フウガドールすみだの子どもたちと並ぶ横峯さくら"
         width={1600}
         height={1067}
         class="my-0"
       />
       <PhotoSlot
-        src="/photos/sakura-baton/figador-sumida-jersey.webp"
-        alt="SAKURA BATONのロゴが入った背番号4のユニフォームを広げて持つ横峯さくら"
+        src="/photos/sakura-baton/fugador-sumida-jersey.webp"
+        alt="SAKURA BATONのロゴが入った背番号4のフウガドールすみだのユニフォームを広げて持つ横峯さくら"
         width={1600}
         height={1200}
         class="my-0"
@@ -63,7 +60,7 @@ const pillars = [
     <section class="mt-12" aria-labelledby="pillars-heading">
       <h2 id="pillars-heading" class="text-xl">3本柱とは何か</h2>
       <p class="mt-4 leading-loose">
-        <Pending text="{{要確認: 3本柱の全体像を2〜3文で}}" />
+        競技・発信・社会貢献の3つを、それぞれ別の活動としてではなく、ひとつながりのものとして進めている。競技を続けることが発信になり、発信が社会貢献につながる。この3つを一本の糸でつなぐことがSAKURA BATONの考え方になっている。
       </p>
       <div class="mt-6 space-y-6">
         {
@@ -71,9 +68,7 @@ const pillars = [
             <div class="border border-line bg-white p-6">
               <p class="text-sm text-sakura-deep">0{i + 1}</p>
               <h3 class="mt-1 text-lg">{pillar.name}</h3>
-              <p class="mt-2 leading-loose">
-                <Pending text={pillar.body} />
-              </p>
+              <p class="mt-2 leading-loose">{pillar.body}</p>
             </div>
           ))
         }
@@ -83,10 +78,38 @@ const pillars = [
     <section class="mt-12" aria-labelledby="fund-heading">
       <h2 id="fund-heading" class="text-xl">Sakura Birdie Fund はどんな仕組みか</h2>
       <p class="mt-4 leading-loose">
-        <Pending text="{{要確認: 答えを2〜3文で（何をすると、いくらが、どこに寄付されるのか）}}" />
+        2024年に始めた取り組みで、横峯さくらがツアーでバーディを1つ奪うごとに1,000円、イーグルで1万円、ホールインワンで5万円を子ども支援団体に寄付する。
       </p>
       <p class="mt-4 leading-loose">
-        <Pending text="{{要確認: 開始年、これまでの累計金額、寄付先（原稿にある数字のみ）}}" />
+        寄付先は日本財団とクリステル・ヴィ・アンサンブルの2団体。プレーが良いほど支援が増える仕組みで、コースでの結果がそのまま子どもたちに届く。
+      </p>
+      <dl class="mt-6 divide-y divide-line border-y border-line text-sm">
+        <div class="grid grid-cols-[9rem_1fr] gap-4 py-3">
+          <dt class="text-ink-soft">バーディ</dt>
+          <dd>1つにつき 1,000円</dd>
+        </div>
+        <div class="grid grid-cols-[9rem_1fr] gap-4 py-3">
+          <dt class="text-ink-soft">イーグル</dt>
+          <dd>1つにつき 1万円</dd>
+        </div>
+        <div class="grid grid-cols-[9rem_1fr] gap-4 py-3">
+          <dt class="text-ink-soft">ホールインワン</dt>
+          <dd>1回につき 5万円</dd>
+        </div>
+        <div class="grid grid-cols-[9rem_1fr] gap-4 py-3">
+          <dt class="text-ink-soft">寄付先</dt>
+          <dd>日本財団／クリステル・ヴィ・アンサンブル</dd>
+        </div>
+      </dl>
+    </section>
+
+    <section class="mt-12" aria-labelledby="fugador-heading">
+      <h2 id="fugador-heading" class="text-xl">フウガドールすみだへの支援とは</h2>
+      <p class="mt-4 leading-loose">
+        フットサルクラブ「フウガドールすみだ」の育成組織を、ユニフォームの胸スポンサーとして支援している（2年契約）。
+      </p>
+      <p class="mt-4 leading-loose">
+        2026年7月にはU-18チームが全日本U-18フットサル選手権で優勝し、日本一になった。
       </p>
     </section>
 
