@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Pending from '../components/Pending.astro';
+import PhotoSlot from '../components/PhotoSlot.astro';
 import RelatedLinks from '../components/RelatedLinks.astro';
 import { SPONSOR_GROUPS } from '../data/sponsors';
 import { PAGES } from '../data/pages';
@@ -16,6 +17,23 @@ import { PAGES } from '../data/pages';
     <p class="mt-4 leading-loose">
       横峯さくらの活動を支えていただいている企業・団体です。
     </p>
+
+    <div class="mt-8 grid gap-4 sm:grid-cols-2">
+      <PhotoSlot
+        src="/photos/sponsors/smeg-sparkling-water.webp"
+        alt="キッチンでSMEGのスパークリングウォーターメーカーに手を添える横峯さくら"
+        width={1320}
+        height={1963}
+        class="my-0"
+      />
+      <PhotoSlot
+        src="/photos/sponsors/smeg-kettle.webp"
+        alt="SMEGの電気ケトルを手に持つ横峯さくら"
+        width={1320}
+        height={1949}
+        class="my-0"
+      />
+    </div>
 
     {
       SPONSOR_GROUPS.map((group) => (

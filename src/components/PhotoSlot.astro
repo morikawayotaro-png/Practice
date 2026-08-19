@@ -15,6 +15,10 @@ interface Props {
   height?: number;
   class?: string;
   caption?: string;
+  /** 表示比率（例: 'aspect-[3/2]'）。未指定なら写真の縦横比のまま */
+  ratio?: string;
+  /** object-position の調整（例: 'object-[center_25%]'） */
+  position?: string;
 }
 const {
   alt,
@@ -24,6 +28,8 @@ const {
   height,
   class: className,
   caption,
+  ratio,
+  position = 'object-center',
 } = Astro.props;
 ---
 
@@ -38,7 +44,9 @@ const {
         loading={lazy ? 'lazy' : 'eager'}
         decoding={lazy ? 'async' : 'sync'}
         fetchpriority={lazy ? undefined : 'high'}
-        class="w-full h-auto object-cover"
+        class:list={[
+          ratio ? `w-full h-full object-cover ${ratio} ${position}` : 'w-full h-auto',
+        ]}
       />
     ) : (
       <div
