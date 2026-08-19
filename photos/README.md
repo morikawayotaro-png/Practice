@@ -41,6 +41,12 @@ photos/
 | `stories/desert-course-wide.jpg` | 山並みとサボテンが見えるコースのグリーン | `/stories/tour-life`（ギャラリー） |
 | `stories/city-street-tower.jpg` | タワーが見える街の交差点の横峯さくら | `/stories/tour-life`（ギャラリー） |
 | `stories/city-street-portrait.jpg` | 街路樹の並ぶ通りに立つ横峯さくら | `/stories/tour-life`（ギャラリー） |
+| `stories/beach-sunset.jpg` | 夕方の海辺の横峯さくらと子ども | `/stories/tour-life`（本文写真） |
+| `stories/airport-terminal-christmas.jpg` | クリスマスツリーが飾られた空港ターミナル | `/stories/tour-life`（ギャラリー） |
+| `stories/train-station-hall.jpg` | アーチ型の屋根が続く駅のコンコース | `/stories/tour-life`（ギャラリー） |
+| `stories/city-night-billboards.jpg` | 電光看板が並ぶ夜の街の交差点 | `/stories/tour-life`（ギャラリー） |
+| `stories/home-cooking.jpg` | 滞在先のキッチンで野菜を炒める横峯さくら | `/stories/tour-life`（ギャラリー） |
+| `comeback/with-child-grass.jpg` | 草地で子どもと顔を寄せて笑う横峯さくら | `/stories/comeback`（本文写真） |
 | `sakura-baton/figador-sumida-jersey.jpg` | SAKURA BATONのロゴが入った背番号4のユニフォーム | `/sakura-baton` |
 | `sponsors/golf-shoe.jpg` | ゴルフシューズを手に持つ横峯さくら | `/sponsors` |
 | `sponsors/smeg-sparkling-water.jpg` | SMEGのスパークリングウォーターメーカーと横峯さくら | `/sponsors` |
@@ -50,12 +56,14 @@ photos/
 
 | ファイル | 内容 | 保留の理由 |
 |---|---|---|
-| `_pending/tour-life-beach.jpg` | 夕方の海辺を歩く横峯さくらと子ども | 子どもが写っている（CLAUDE.mdルール5） |
 | `_pending/illustration_v1.png` | フォロースルーの横位置ワイド画像 | 加工または生成画像の可能性があり、素材の出自を確認したい |
 
 公開する場合は `photos/` 側の通常フォルダへ移動し、`npm run photos` を実行してページに配置する。
 
-ギャラリーの4点はキャプションを `{{要確認: この写真の撮影地と年月}}` にしてある。
+子どもが写っている写真は、2026年8月に掲載可の確認を得たうえで使用している
+（名前は扱わない。CLAUDE.mdルール5）。
+
+ギャラリーのキャプションを `{{要確認: この写真の撮影地と年月}}` にしてある。
 撮影地と年月が分かったら `src/content/stories/tour-life.md` の `gallery` の
 `caption` を書き換える。
 

@@ -6,18 +6,28 @@ lead: '{{要確認: 冒頭段落（誰が・何を・いつから・なぜ を4�
 order: 1
 publishDate: 2026-08-19
 updatedDate: 2026-08-19
-image: /photos/stories/airport-travel.webp
-imageAlt: ゴルフバッグとスーツケースを押して空港のロビーに立つ横峯さくら
+image: /photos/stories/beach-sunset.webp
+imageAlt: 夕方の海辺で波打ち際に立つ横峯さくらと子ども
 imageWidth: 1600
-imageHeight: 1067
+imageHeight: 2133
 gallery:
-  - src: /photos/stories/desert-course-pointing.webp
-    alt: サボテンが生えるコースのティーイングエリアで打つ方向を指す横峯さくら
+  - src: /photos/stories/airport-travel.webp
+    alt: ゴルフバッグとスーツケースを押して空港のロビーに立つ横峯さくら
+    width: 1600
+    height: 1067
+    caption: '{{要確認: この写真の撮影地と年月}}'
+  - src: /photos/stories/airport-terminal-christmas.webp
+    alt: クリスマスツリーが飾られた空港のターミナルを歩く横峯さくら
+    width: 1600
+    height: 2133
+    caption: '{{要確認: この写真の撮影地と年月}}'
+  - src: /photos/stories/train-station-hall.webp
+    alt: アーチ型の屋根が続く駅のコンコースに立つ横峯さくら
     width: 1600
     height: 1200
     caption: '{{要確認: この写真の撮影地と年月}}'
-  - src: /photos/stories/desert-course-wide.webp
-    alt: 山並みとサボテンが見えるコースのグリーンに立つ横峯さくら
+  - src: /photos/stories/city-night-billboards.webp
+    alt: 電光看板が並ぶ夜の街の交差点に立つ横峯さくら
     width: 1600
     height: 1200
     caption: '{{要確認: この写真の撮影地と年月}}'
@@ -30,6 +40,21 @@ gallery:
     alt: 街路樹の並ぶ通りに立つ横峯さくら
     width: 1600
     height: 1067
+    caption: '{{要確認: この写真の撮影地と年月}}'
+  - src: /photos/stories/desert-course-pointing.webp
+    alt: サボテンが生えるコースのティーイングエリアで打つ方向を指す横峯さくら
+    width: 1600
+    height: 1200
+    caption: '{{要確認: この写真の撮影地と年月}}'
+  - src: /photos/stories/desert-course-wide.webp
+    alt: 山並みとサボテンが見えるコースのグリーンに立つ横峯さくら
+    width: 1600
+    height: 1200
+    caption: '{{要確認: この写真の撮影地と年月}}'
+  - src: /photos/stories/home-cooking.webp
+    alt: 滞在先のキッチンでフライパンで野菜を炒める横峯さくら
+    width: 1600
+    height: 1200
     caption: '{{要確認: この写真の撮影地と年月}}'
 related:
   - href: /stories/childcare-on-tour

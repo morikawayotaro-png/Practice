@@ -6,6 +6,10 @@ lead: '{{要確認: 冒頭段落（誰が・何を・いつから・なぜ を4�
 order: 2
 publishDate: 2026-08-19
 updatedDate: 2026-08-19
+image: /photos/comeback/with-child-grass.webp
+imageAlt: 草地でしゃがみ、子どもと顔を寄せて笑う横峯さくら
+imageWidth: 1600
+imageHeight: 1200
 related:
   - href: /stories/tour-life
     label: 家族と旅するツアー暮らし
