@@ -65,6 +65,16 @@ export const FOOTER_NAV: NavItem[] = [
   { href: '/en', label: 'English' },
 ];
 
+/**
+ * フッターに出す外部リンク。
+ * URLは sameAs から取るので、site.ts の1箇所を直せば両方に反映される。
+ * 掲載するのはSNSのみ（Wikipedia・JLPGA選手ページはJSON-LDのみで扱う）。
+ */
+export const SOCIAL_LINKS: { label: string; href: string }[] = [
+  { label: 'Instagram', href: SITE.sameAs.instagram },
+  { label: 'YouTube', href: SITE.sameAs.youtube },
+].filter((link) => link.href.length > 0);
+
 /** sameAs の配列（空を除く） */
 export function sameAsList(): string[] {
   return Object.values(SITE.sameAs).filter((v) => typeof v === 'string' && v.length > 0);
