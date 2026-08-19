@@ -18,30 +18,6 @@ import { PAGES } from '../data/pages';
       横峯さくらの活動を支えていただいている企業・団体です。
     </p>
 
-    <div class="mt-8 grid gap-4 sm:grid-cols-3">
-      <PhotoSlot
-        src="/photos/sponsors/smeg-sparkling-water.webp"
-        alt="キッチンでSMEGのスパークリングウォーターメーカーに手を添える横峯さくら"
-        width={1320}
-        height={1963}
-        class="my-0"
-      />
-      <PhotoSlot
-        src="/photos/sponsors/golf-shoe.webp"
-        alt="ゴルフシューズを手に持つ横峯さくら"
-        width={1600}
-        height={2133}
-        class="my-0"
-      />
-      <PhotoSlot
-        src="/photos/sponsors/smeg-kettle.webp"
-        alt="SMEGの電気ケトルを手に持つ横峯さくら"
-        width={1320}
-        height={1949}
-        class="my-0"
-      />
-    </div>
-
     {
       SPONSOR_GROUPS.map((group) => (
         <section class="mt-12" aria-labelledby={`sponsor-${group.id}`}>
@@ -63,6 +39,13 @@ import { PAGES } from '../data/pages';
                 alt="工房で仕上げ前のアイアンヘッドを手に取って確かめる横峯さくら"
                 width={1600}
                 height={1067}
+                class="my-0"
+              />
+              <PhotoSlot
+                src="/photos/sponsors/golf-shoe.webp"
+                alt="ゴルフシューズを手に持つ横峯さくら"
+                width={1600}
+                height={2133}
                 class="my-0"
               />
             </div>
@@ -106,6 +89,24 @@ import { PAGES } from '../data/pages';
               </li>
             ))}
           </ul>
+          {group.id === 'sponsors' && (
+            <div class="mt-6 grid gap-4 sm:grid-cols-2">
+              <PhotoSlot
+                src="/photos/sponsors/smeg-sparkling-water.webp"
+                alt="キッチンでSMEGのスパークリングウォーターメーカーに手を添える横峯さくら"
+                width={1320}
+                height={1963}
+                class="my-0"
+              />
+              <PhotoSlot
+                src="/photos/sponsors/smeg-kettle.webp"
+                alt="SMEGの電気ケトルを手に持つ横峯さくら"
+                width={1320}
+                height={1949}
+                class="my-0"
+              />
+            </div>
+          )}
         </section>
       ))
     }
