@@ -23,16 +23,20 @@ export const SITE = {
     replyTime: '2営業日以内',
   },
   /**
-   * JSON-LD の sameAs に入れる外部プロフィール。空文字のものは出力されない。
-   * {{要確認: Wikipedia・JLPGA選手ページ・Instagram・アメブロ のURL（AI検索が本人と外部情報を紐づけるために必要）}}
+   * JSON-LD の sameAs に入れる外部の公式ページ。空文字のものは出力されない。
+   * 「このサイトの人物は、これらのページと同一人物である」とAI検索に伝えるための項目。
+   * 追加する場合は、本人・所属先が運営している公式のものだけを入れる。
+   * URLは共有用のパラメータを外した正規の形にする。
    */
   sameAs: {
-    wikipedia: '',
-    jlpga: '',
-    instagram: '',
-    ameblo: '',
+    // 日本語版Wikipedia「横峯さくら」（%〜 は日本語タイトルをURLエンコードしたもの）
+    wikipedia: 'https://ja.wikipedia.org/wiki/%E6%A8%AA%E5%B3%AF%E3%81%95%E3%81%8F%E3%82%89',
+    // JLPGA（日本女子プロゴルフ協会）選手ページ
+    jlpga: 'https://www.lpga.or.jp/members/info/1000639',
+    instagram: 'https://www.instagram.com/sakura_yokomine/',
+    ameblo: 'https://ameblo.jp/sakura-yokomine/',
     x: '',
-    youtube: '',
+    youtube: 'https://www.youtube.com/channel/UCl0CeSa8WYkR24hVPLO9SoQ',
   },
   /** OGP のデフォルト画像（public/ からのパス） */
   defaultOgImage: '/ogp/default.jpg',
