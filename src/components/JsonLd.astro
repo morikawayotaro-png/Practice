@@ -1,0 +1,20 @@
+---
+import { prune, type Json } from '../lib/jsonld';
+
+interface Props {
+  schema: Json | Json[];
+}
+const { schema } = Astro.props;
+const list = Array.isArray(schema) ? schema : [schema];
+const json = list.map((s) => prune(s));
+---
+
+{
+  json.map((item) => (
+    <script
+      type="application/ld+json"
+      is:inline
+      set:html={JSON.stringify(item, null, 2)}
+    />
+  ))
+}

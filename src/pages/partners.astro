@@ -1,0 +1,77 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Pending from '../components/Pending.astro';
+import RelatedLinks from '../components/RelatedLinks.astro';
+import { PAGES } from '../data/pages';
+import { SITE } from '../data/site';
+
+const requests = [
+  {
+    title: 'スポンサーシップ',
+    body: '{{要確認: スポンサーシップで対応できる内容（ウェア・キャップのロゴ掲出、契約期間の考え方など）}}',
+  },
+  {
+    title: 'イベント出演・ゴルフレッスン',
+    body: '{{要確認: 出演・レッスンで対応できる内容}}',
+  },
+  { title: '取材・メディア出演', body: '{{要確認: 取材やメディア出演の受付条件}}' },
+  { title: '講演', body: '{{要確認: 講演で話せるテーマと形式}}' },
+];
+---
+
+<BaseLayout
+  title="スポンサーシップ・出演のご案内"
+  description={PAGES.partners.description}
+  updated={PAGES.partners.updated}
+>
+  <div class="mx-auto max-w-3xl px-5 py-12">
+    <h1 class="text-2xl sm:text-3xl">スポンサーシップ・出演のご案内</h1>
+
+    <p class="mt-6 border-l-4 border-sakura bg-white p-5 leading-loose">
+      横峯さくらへのスポンサーシップ、イベント出演、取材、講演のご依頼は、{SITE.contact.company}が窓口です。
+      下記の内容をご確認のうえ、ご連絡ください。
+    </p>
+
+    <section class="mt-12" aria-labelledby="requests-heading">
+      <h2 id="requests-heading" class="text-xl">どんな依頼を受け付けているか</h2>
+      <dl class="mt-4 divide-y divide-line border-y border-line">
+        {
+          requests.map((item) => (
+            <div class="py-4">
+              <dt class="font-medium">{item.title}</dt>
+              <dd class="mt-1 text-sm leading-loose">
+                <Pending text={item.body} />
+              </dd>
+            </div>
+          ))
+        }
+      </dl>
+    </section>
+
+    <section class="mt-12" aria-labelledby="contact-heading">
+      <h2 id="contact-heading" class="text-xl">依頼先はどこか</h2>
+      <div class="mt-4 border border-line bg-white p-6">
+        <p class="font-medium">{SITE.contact.company}</p>
+        <p class="mt-2 text-sm">
+          メール: <Pending text={SITE.contact.email} />
+        </p>
+        <p class="mt-1 text-sm">
+          所在地: <Pending text={SITE.contact.address} />
+        </p>
+      </div>
+      <p class="mt-4 text-sm leading-loose">
+        <Pending
+          text="{{要確認: 連絡時に記載してほしい項目（希望日時、場所、内容、予算など）と、回答までの目安日数}}"
+        />
+      </p>
+    </section>
+
+    <RelatedLinks
+      links={[
+        { href: '/sponsors', label: 'スポンサー', note: '現在ご支援いただいている企業' },
+        { href: '/profile', label: 'プロフィール', note: '経歴と戦績' },
+        { href: '/media', label: 'メディア出演・掲載', note: '過去の出演実績' },
+      ]}
+    />
+  </div>
+</BaseLayout>

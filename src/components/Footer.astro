@@ -1,0 +1,41 @@
+---
+import { FOOTER_NAV, SITE } from '../data/site';
+import Pending from './Pending.astro';
+const year = 2026;
+---
+
+<footer class="mt-20 border-t border-line bg-cream-deep">
+  <div class="mx-auto max-w-5xl px-5 py-12">
+    <p class="font-serif text-lg">{SITE.personName} オフィシャルサイト</p>
+    <p class="mt-2 text-sm text-ink-soft">{SITE.tagline}</p>
+
+    <nav aria-label="フッターナビゲーション" class="mt-8">
+      <ul class="grid grid-cols-2 gap-y-2 gap-x-6 text-sm sm:grid-cols-3">
+        {
+          FOOTER_NAV.map((item) => (
+            <li>
+              <a href={item.href} class="hover:text-sakura-deep">
+                {item.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+
+    <div class="mt-8 border-t border-line pt-6 text-sm text-ink-soft">
+      <p>
+        スポンサーシップ・出演・取材のご依頼: {SITE.contact.company}（<a
+          href="/partners"
+          class="underline">ご案内</a
+        >）
+      </p>
+      <p class="mt-1">
+        <a href="/llms.txt" class="underline">llms.txt</a> ・
+        <a href="/sitemap-index.xml" class="underline">sitemap.xml</a> ・
+        <a href="/robots.txt" class="underline">robots.txt</a>
+      </p>
+      <p class="mt-4">© {year} <Pending text={SITE.contact.company} /></p>
+    </div>
+  </div>
+</footer>

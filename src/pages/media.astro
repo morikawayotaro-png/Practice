@@ -1,0 +1,69 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Pending from '../components/Pending.astro';
+import RelatedLinks from '../components/RelatedLinks.astro';
+import { MEDIA_ITEMS } from '../data/media';
+import { PAGES } from '../data/pages';
+---
+
+<BaseLayout
+  title="メディア出演・掲載"
+  description={PAGES.media.description}
+  updated={PAGES.media.updated}
+>
+  <div class="mx-auto max-w-3xl px-5 py-12">
+    <h1 class="text-2xl sm:text-3xl">メディア出演・掲載</h1>
+    <p class="mt-4 leading-loose">
+      テレビ、ラジオ、雑誌、Web媒体への出演と掲載の履歴です。新しい順に、年月・種別・媒体名・番組名または記事名を掲載しています。
+      掲載先で記事が公開されている場合はリンクを付けています。
+      出演・取材のご依頼は<a href="/partners" class="text-sakura-deep underline underline-offset-4">スポンサーシップ・出演のご案内</a>をご覧ください。
+    </p>
+
+    <div class="mt-8 overflow-x-auto">
+      <table class="w-full border-collapse text-sm">
+        <thead>
+          <tr class="border-b border-line text-left">
+            <th scope="col" class="py-2 pr-4">年月</th>
+            <th scope="col" class="py-2 pr-4">種別</th>
+            <th scope="col" class="py-2 pr-4">媒体</th>
+            <th scope="col" class="py-2">番組・記事</th>
+          </tr>
+        </thead>
+        <tbody>
+          {
+            MEDIA_ITEMS.map((item) => (
+              <tr class="border-b border-line">
+                <td class="py-2 pr-4 align-top whitespace-nowrap">
+                  <Pending text={item.date} />
+                </td>
+                <td class="py-2 pr-4 align-top">
+                  <Pending text={item.type} />
+                </td>
+                <td class="py-2 pr-4 align-top">
+                  <Pending text={item.outlet} />
+                </td>
+                <td class="py-2 align-top">
+                  {item.url ? (
+                    <a href={item.url} rel="noopener" target="_blank" class="underline">
+                      <Pending text={item.title} />
+                    </a>
+                  ) : (
+                    <Pending text={item.title} />
+                  )}
+                </td>
+              </tr>
+            ))
+          }
+        </tbody>
+      </table>
+    </div>
+
+    <RelatedLinks
+      links={[
+        { href: '/partners', label: 'スポンサーシップ・出演のご案内', note: '取材のご依頼' },
+        { href: '/news', label: 'ニュース', note: '最新のお知らせ' },
+        { href: '/profile', label: 'プロフィール', note: '経歴と戦績' },
+      ]}
+    />
+  </div>
+</BaseLayout>

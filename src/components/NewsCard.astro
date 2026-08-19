@@ -1,0 +1,23 @@
+---
+interface Props {
+  href: string;
+  title: string;
+  description: string;
+  date: Date;
+  category?: string;
+}
+const { href, title, description, date, category } = Astro.props;
+const iso = date.toISOString().slice(0, 10);
+const [y, m, d] = iso.split('-');
+---
+
+<article class="border-b border-line py-5">
+  <p class="text-sm text-ink-soft">
+    <time datetime={iso}>{y}年{Number(m)}月{Number(d)}日</time>
+    {category && <span class="ml-3">{category}</span>}
+  </p>
+  <h3 class="mt-1 text-lg">
+    <a href={href} class="hover:text-sakura-deep">{title}</a>
+  </h3>
+  <p class="mt-1 text-sm text-ink-soft">{description}</p>
+</article>

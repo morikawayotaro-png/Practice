@@ -1,0 +1,92 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Pending from '../components/Pending.astro';
+import PhotoSlot from '../components/PhotoSlot.astro';
+import RelatedLinks from '../components/RelatedLinks.astro';
+import { PAGES } from '../data/pages';
+
+const pillars = [
+  {
+    name: '競技',
+    body: '{{要確認: 競技の柱の説明（何を目指し、何に取り組んでいるか）}}',
+  },
+  {
+    name: '発信',
+    body: '{{要確認: 発信の柱の説明（何を、どこで、誰に向けて発信しているか）}}',
+  },
+  {
+    name: '社会貢献',
+    body: '{{要確認: 社会貢献の柱の説明（どんな活動を、いつから、誰と）}}',
+  },
+];
+---
+
+<BaseLayout
+  title="SAKURA BATON"
+  description={PAGES.sakuraBaton.description}
+  updated={PAGES.sakuraBaton.updated}
+>
+  <div class="mx-auto max-w-3xl px-5 py-12">
+    <h1 class="text-2xl sm:text-3xl">SAKURA BATON</h1>
+
+    <p class="mt-6 border-l-4 border-sakura bg-white p-5 leading-loose">
+      <Pending
+        text="{{要確認: 冒頭要約（SAKURA BATONとは何か、いつから、何のための取り組みかを4〜5文で）}}"
+      />
+    </p>
+
+    <PhotoSlot alt="{{要確認: 活動風景の写真のalt（誰が何をしている写真か）}}" />
+
+    <section class="mt-12" aria-labelledby="pillars-heading">
+      <h2 id="pillars-heading" class="text-xl">3本柱とは何か</h2>
+      <p class="mt-4 leading-loose">
+        <Pending text="{{要確認: 3本柱の全体像を2〜3文で}}" />
+      </p>
+      <div class="mt-6 space-y-6">
+        {
+          pillars.map((pillar, i) => (
+            <div class="border border-line bg-white p-6">
+              <p class="text-sm text-sakura-deep">0{i + 1}</p>
+              <h3 class="mt-1 text-lg">{pillar.name}</h3>
+              <p class="mt-2 leading-loose">
+                <Pending text={pillar.body} />
+              </p>
+            </div>
+          ))
+        }
+      </div>
+    </section>
+
+    <section class="mt-12" aria-labelledby="fund-heading">
+      <h2 id="fund-heading" class="text-xl">Sakura Birdie Fund はどんな仕組みか</h2>
+      <p class="mt-4 leading-loose">
+        <Pending text="{{要確認: 答えを2〜3文で（何をすると、いくらが、どこに寄付されるのか）}}" />
+      </p>
+      <p class="mt-4 leading-loose">
+        <Pending text="{{要確認: 開始年、これまでの累計金額、寄付先（原稿にある数字のみ）}}" />
+      </p>
+    </section>
+
+    <section class="mt-12" aria-labelledby="join-heading">
+      <h2 id="join-heading" class="text-xl">支援や協業を考えている場合はどうすればよいか</h2>
+      <p class="mt-4 leading-loose">
+        ご相談はHERITAGE合同会社が窓口です。<a
+          href="/partners"
+          class="text-sakura-deep underline underline-offset-4">ご案内ページ</a
+        >に連絡先をまとめています。
+      </p>
+    </section>
+
+    <RelatedLinks
+      links={[
+        {
+          href: '/stories/childcare-on-tour',
+          label: 'ツアーに託児所を',
+          note: '環境づくりの取り組み',
+        },
+        { href: '/challenge', label: '今の挑戦', note: '競技の現在地' },
+        { href: '/partners', label: 'スポンサーシップ・出演のご案内', note: '協業のご相談' },
+      ]}
+    />
+  </div>
+</BaseLayout>

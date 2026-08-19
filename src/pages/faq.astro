@@ -1,0 +1,67 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Pending from '../components/Pending.astro';
+import RelatedLinks from '../components/RelatedLinks.astro';
+import { FAQS } from '../data/faq';
+import { PAGES } from '../data/pages';
+import { SITE } from '../data/site';
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  inLanguage: 'ja',
+  url: new URL('/faq', SITE.url).toString(),
+  mainEntity: FAQS.map((faq) => ({
+    '@type': 'Question',
+    name: faq.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: faq.answer,
+    },
+  })),
+};
+---
+
+<BaseLayout
+  title="よくある質問"
+  description={PAGES.faq.description}
+  updated={PAGES.faq.updated}
+  jsonLd={faqSchema}
+>
+  <div class="mx-auto max-w-3xl px-5 py-12">
+    <h1 class="text-2xl sm:text-3xl">よくある質問</h1>
+    <p class="mt-4 leading-loose">
+      横峯さくらについてよく寄せられる8つの質問と、その回答をまとめています。
+    </p>
+
+    <div class="mt-10 space-y-8">
+      {
+        FAQS.map((faq, i) => (
+          <section class="border-b border-line pb-8" aria-labelledby={`faq-${i + 1}`}>
+            <h2 id={`faq-${i + 1}`} class="text-lg leading-relaxed">
+              {faq.question}
+            </h2>
+            <p class="mt-3 leading-loose">
+              <Pending text={faq.answer} />
+            </p>
+            {faq.more && (
+              <p class="mt-3 text-sm">
+                <a href={faq.more.href} class="text-sakura-deep underline underline-offset-4">
+                  {faq.more.label}
+                </a>
+              </p>
+            )}
+          </section>
+        ))
+      }
+    </div>
+
+    <RelatedLinks
+      links={[
+        { href: '/profile', label: 'プロフィール', note: '基本情報と戦績' },
+        { href: '/challenge', label: '今の挑戦', note: '永久シードの現在地' },
+        { href: '/partners', label: 'スポンサーシップ・出演のご案内', note: 'ご依頼の窓口' },
+      ]}
+    />
+  </div>
+</BaseLayout>

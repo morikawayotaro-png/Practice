@@ -1,0 +1,14 @@
+---
+interface Props {
+  date: string | Date;
+  label?: string;
+  class?: string;
+}
+const { date, label = '更新日', class: className } = Astro.props;
+const d = typeof date === 'string' ? date : date.toISOString().slice(0, 10);
+const [y, m, day] = d.slice(0, 10).split('-');
+---
+
+<p class:list={['text-sm text-ink-soft', className]}>
+  {label}: <time datetime={d.slice(0, 10)}>{y}年{Number(m)}月{Number(day)}日</time>
+</p>

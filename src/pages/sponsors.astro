@@ -1,0 +1,76 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Pending from '../components/Pending.astro';
+import RelatedLinks from '../components/RelatedLinks.astro';
+import { SPONSOR_GROUPS } from '../data/sponsors';
+import { PAGES } from '../data/pages';
+---
+
+<BaseLayout
+  title="スポンサー"
+  description={PAGES.sponsors.description}
+  updated={PAGES.sponsors.updated}
+>
+  <div class="mx-auto max-w-3xl px-5 py-12">
+    <h1 class="text-2xl sm:text-3xl">スポンサー</h1>
+    <p class="mt-4 leading-loose">
+      横峯さくらの活動を支えていただいている企業・団体です。
+    </p>
+
+    {
+      SPONSOR_GROUPS.map((group) => (
+        <section class="mt-12" aria-labelledby={`sponsor-${group.id}`}>
+          <h2 id={`sponsor-${group.id}`} class="text-xl">
+            {group.heading}
+          </h2>
+          {group.note && <p class="mt-1 text-sm text-ink-soft">{group.note}</p>}
+          <ul class="mt-4 grid gap-4 sm:grid-cols-2">
+            {group.sponsors.map((sponsor) => (
+              <li class="flex items-center gap-4 border border-line bg-white p-4">
+                {sponsor.logo ? (
+                  <img
+                    src={sponsor.logo}
+                    alt={sponsor.name}
+                    loading="lazy"
+                    decoding="async"
+                    class="h-12 w-auto object-contain"
+                  />
+                ) : (
+                  <span
+                    class="flex h-12 w-24 shrink-0 items-center justify-center border border-dashed border-line text-[10px] text-ink-soft"
+                    role="img"
+                    aria-label={sponsor.name}
+                  >
+                    ロゴ未入稿
+                  </span>
+                )}
+                <span class="text-sm">
+                  {sponsor.url ? (
+                    <a href={sponsor.url} rel="noopener" target="_blank" class="underline">
+                      <Pending text={sponsor.name} />
+                    </a>
+                  ) : (
+                    <Pending text={sponsor.name} />
+                  )}
+                  {sponsor.category && (
+                    <span class="block text-xs text-ink-soft">
+                      <Pending text={sponsor.category} />
+                    </span>
+                  )}
+                </span>
+              </li>
+            ))}
+          </ul>
+        </section>
+      ))
+    }
+
+    <RelatedLinks
+      links={[
+        { href: '/partners', label: 'スポンサーシップ・出演のご案内', note: 'ご依頼の窓口' },
+        { href: '/sakura-baton', label: 'SAKURA BATON', note: '社会貢献の取り組み' },
+        { href: '/profile', label: 'プロフィール', note: '経歴と戦績' },
+      ]}
+    />
+  </div>
+</BaseLayout>

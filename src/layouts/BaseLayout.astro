@@ -1,0 +1,101 @@
+---
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import JsonLd from '../components/JsonLd.astro';
+import UpdatedDate from '../components/UpdatedDate.astro';
+import { SITE } from '../data/site';
+import type { Json } from '../lib/jsonld';
+
+interface Props {
+  title: string;
+  description: string;
+  /** YYYY-MM-DD。全ページに更新日を表示する */
+  updated?: string;
+  ogImage?: string;
+  ogType?: 'website' | 'article' | 'profile';
+  lang?: 'ja' | 'en';
+  jsonLd?: Json | Json[];
+  /** ページ末尾に更新日を出すか */
+  showUpdated?: boolean;
+}
+
+const {
+  title,
+  description,
+  updated,
+  ogImage = SITE.defaultOgImage,
+  ogType = 'website',
+  lang = 'ja',
+  jsonLd,
+  showUpdated = true,
+} = Astro.props;
+
+const pathname = Astro.url.pathname.replace(/\/$/, '') || '/';
+const canonical = new URL(pathname, SITE.url).toString();
+// 日英の対応があるのはトップと /en のみ
+const hasAlternate = pathname === '/' || pathname === '/en';
+const ogImageUrl = new URL(ogImage, SITE.url).toString();
+const fullTitle =
+  title === SITE.name || title.includes(SITE.personName) ? title : `${title} | ${SITE.personName}`;
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+    {updated && <meta name="last-modified" content={updated} />}
+
+    <meta property="og:type" content={ogType} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta property="og:site_name" content={SITE.name} />
+    <meta property="og:locale" content={lang === 'en' ? 'en_US' : SITE.locale} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageUrl} />
+
+    {
+      hasAlternate && (
+        <Fragment>
+          <link rel="alternate" hreflang="ja" href={new URL('/', SITE.url).toString()} />
+          <link rel="alternate" hreflang="en" href={new URL('/en', SITE.url).toString()} />
+          <link rel="alternate" hreflang="x-default" href={new URL('/', SITE.url).toString()} />
+        </Fragment>
+      )
+    }
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    {jsonLd && <JsonLd schema={jsonLd} />}
+  </head>
+  <body class="min-h-screen flex flex-col">
+    <a href="#main" class="sr-only focus:not-sr-only">本文へスキップ</a>
+    <Header />
+    <main id="main" class="flex-1">
+      <slot />
+      {
+        showUpdated && updated && (
+          <div class="mx-auto max-w-3xl px-5 pt-12">
+            <UpdatedDate date={updated} />
+          </div>
+        )
+      }
+    </main>
+    <Footer />
+  </body>
+</html>

@@ -1,0 +1,115 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Pending from '../components/Pending.astro';
+import PhotoSlot from '../components/PhotoSlot.astro';
+import NewsCard from '../components/NewsCard.astro';
+import { SITE, sameAsList } from '../data/site';
+import { PAGES } from '../data/pages';
+
+const news = (await getCollection('news', ({ data }) => !data.draft))
+  .sort((a, b) => b.data.publishDate.getTime() - a.data.publishDate.getTime())
+  .slice(0, 3);
+
+const stories = (await getCollection('stories')).sort((a, b) => a.data.order - b.data.order);
+
+const websiteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: SITE.name,
+  url: SITE.url,
+  inLanguage: 'ja',
+  description: SITE.definition,
+  about: {
+    '@type': 'Person',
+    name: SITE.personName,
+    alternateName: SITE.personNameEn,
+    jobTitle: SITE.jobTitle,
+    url: new URL('/profile', SITE.url).toString(),
+    sameAs: sameAsList(),
+  },
+};
+---
+
+<BaseLayout
+  title={PAGES.home.title}
+  description={SITE.definition}
+  updated={PAGES.home.updated}
+  jsonLd={websiteSchema}
+>
+  <section class="mx-auto max-w-5xl px-5 pt-10 pb-16">
+    <PhotoSlot
+      alt="{{要確認: トップのヒーロー画像のalt（誰が何をしている写真か）}}"
+      lazy={false}
+      class="my-0"
+    />
+    <h1 class="mt-10 font-serif text-xl leading-loose sm:text-2xl">
+      <span class="block text-sm tracking-widest text-ink-soft">{SITE.personName}／{SITE.jobTitle}</span>
+      {SITE.tagline}
+    </h1>
+    <p class="mt-6 max-w-2xl text-base leading-loose">
+      <Pending text={SITE.definition} />
+    </p>
+    <p class="mt-8">
+      <a
+        href="/profile"
+        class="inline-block border border-ink px-6 py-2.5 text-sm hover:bg-ink hover:text-cream"
+        >プロフィールを見る</a
+      >
+    </p>
+  </section>
+
+  <section class="border-t border-line bg-white/60" aria-labelledby="news-heading">
+    <div class="mx-auto max-w-5xl px-5 py-14">
+      <div class="flex items-baseline justify-between">
+        <h2 id="news-heading" class="text-xl">最新ニュース</h2>
+        <a href="/news" class="text-sm underline underline-offset-4">一覧を見る</a>
+      </div>
+      <div class="mt-4">
+        {
+          news.length > 0 ? (
+            news.map((item) => (
+              <NewsCard
+                href={`/news/${item.id}`}
+                title={item.data.title}
+                description={item.data.description}
+                date={item.data.publishDate}
+                category={item.data.category}
+              />
+            ))
+          ) : (
+            <p class="py-6 text-sm text-ink-soft">
+              <Pending text="{{要確認: 掲載するニュース記事（src/content/news/ にMarkdownを追加すると、ここに新しい順で3件表示される）}}" />
+            </p>
+          )
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-5xl px-5 py-14" aria-labelledby="stories-heading">
+    <h2 id="stories-heading" class="text-xl">記録</h2>
+    <p class="mt-2 text-sm text-ink-soft">
+      競技のこと、家族とのツアー生活、環境づくりの取り組みをまとめています。
+    </p>
+    <ul class="mt-6 grid gap-6 sm:grid-cols-2">
+      {
+        stories.map((story) => (
+          <li class="border border-line bg-white p-6">
+            <h3 class="text-lg leading-relaxed">
+              <a href={`/stories/${story.id}`} class="hover:text-sakura-deep">
+                {story.data.title}
+              </a>
+            </h3>
+            <p class="mt-2 text-sm text-ink-soft">{story.data.question}</p>
+          </li>
+        ))
+      }
+    </ul>
+    <p class="mt-8">
+      <a href="/challenge" class="text-sakura-deep underline underline-offset-4"
+        >今の挑戦（永久シードの現在地）</a
+      >
+    </p>
+  </section>
+</BaseLayout>

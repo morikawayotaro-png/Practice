@@ -1,0 +1,57 @@
+---
+/**
+ * 写真の配置予定枠。
+ * photos/ に素材が入ったら <img> / <Image> に差し替える。
+ * src を渡した場合は実画像を表示する（alt は必須）。
+ */
+interface Props {
+  /** 誰が何をしている写真かを日本語で書いた alt */
+  alt: string;
+  /** public/ からのパス。未指定なら枠だけ表示 */
+  src?: string;
+  /** 遅延読み込みしない場合は false（トップのヒーロー画像など） */
+  lazy?: boolean;
+  width?: number;
+  height?: number;
+  class?: string;
+  caption?: string;
+}
+const {
+  alt,
+  src,
+  lazy = true,
+  width,
+  height,
+  class: className,
+  caption,
+} = Astro.props;
+---
+
+<figure class:list={['my-6', className]}>
+  {
+    src ? (
+      <img
+        src={src}
+        alt={alt}
+        width={width}
+        height={height}
+        loading={lazy ? 'lazy' : 'eager'}
+        decoding={lazy ? 'async' : 'sync'}
+        fetchpriority={lazy ? undefined : 'high'}
+        class="w-full h-auto object-cover"
+      />
+    ) : (
+      <div
+        class="w-full aspect-[3/2] bg-cream-deep border border-dashed border-line flex items-center justify-center p-6 text-center"
+        role="img"
+        aria-label={alt}
+      >
+        <span class="text-sm text-ink-soft">
+          写真スロット（未入稿）<br />
+          alt: {alt}
+        </span>
+      </div>
+    )
+  }
+  {caption && <figcaption class="mt-2 text-sm text-ink-soft">{caption}</figcaption>}
+</figure>

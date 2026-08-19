@@ -1,0 +1,80 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Pending from '../../components/Pending.astro';
+import { PROFILE_EN } from '../../data/profile';
+import { PAGES } from '../../data/pages';
+import { SITE, sameAsList } from '../../data/site';
+
+const personSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: SITE.personNameEn,
+  alternateName: SITE.personName,
+  jobTitle: 'Professional golfer',
+  nationality: 'Japan',
+  url: new URL('/en', SITE.url).toString(),
+  sameAs: sameAsList(),
+  description: PROFILE_EN.summary,
+};
+---
+
+<BaseLayout
+  title={PAGES.en.title}
+  description={PAGES.en.description}
+  updated={PAGES.en.updated}
+  lang="en"
+  ogType="profile"
+  jsonLd={personSchema}
+>
+  <div class="mx-auto max-w-3xl px-5 py-12">
+    <h1 class="text-2xl sm:text-3xl">Sakura Yokomine</h1>
+    <p class="mt-2 text-sm text-ink-soft">Professional golfer / JLPGA Tour</p>
+
+    <p class="mt-6 border-l-4 border-sakura bg-white p-5 leading-loose">
+      <Pending text={PROFILE_EN.summary} />
+    </p>
+
+    <section class="mt-12" aria-labelledby="en-basic">
+      <h2 id="en-basic" class="text-xl">Profile</h2>
+      <dl class="mt-4 divide-y divide-line border-y border-line">
+        {
+          PROFILE_EN.facts.map((fact) => (
+            <div class="grid grid-cols-[9rem_1fr] gap-4 py-3 text-sm">
+              <dt class="text-ink-soft">{fact.label}</dt>
+              <dd>
+                <Pending text={fact.value} />
+              </dd>
+            </div>
+          ))
+        }
+      </dl>
+    </section>
+
+    <section class="mt-12" aria-labelledby="en-career">
+      <h2 id="en-career" class="text-xl">Career</h2>
+      <p class="mt-4 leading-loose">
+        <Pending text={PROFILE_EN.career} />
+      </p>
+    </section>
+
+    <section class="mt-12" aria-labelledby="en-goal">
+      <h2 id="en-goal" class="text-xl">Current goal</h2>
+      <p class="mt-4 leading-loose">
+        <Pending text={PROFILE_EN.currentGoal} />
+      </p>
+    </section>
+
+    <section class="mt-12" aria-labelledby="en-contact">
+      <h2 id="en-contact" class="text-xl">Contact</h2>
+      <p class="mt-4 leading-loose">
+        For sponsorship, appearances and media enquiries, please contact {SITE.contact.company} (
+        <Pending text={SITE.contact.email} />
+        ).
+      </p>
+    </section>
+
+    <p class="mt-12 text-sm">
+      <a href="/" class="text-sakura-deep underline underline-offset-4">日本語サイトへ</a>
+    </p>
+  </div>
+</BaseLayout>

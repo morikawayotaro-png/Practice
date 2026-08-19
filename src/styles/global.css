@@ -1,0 +1,101 @@
+@import 'tailwindcss';
+
+@theme {
+  /* オフホワイト基調＋桜色をアクセントに少量 */
+  --color-cream: #faf8f4;
+  --color-cream-deep: #f2ede5;
+  --color-ink: #22201d;
+  --color-ink-soft: #55504a;
+  --color-line: #e4ded4;
+  --color-sakura: #e5a2ae;
+  --color-sakura-deep: #c9788a;
+
+  --font-sans: 'Noto Sans JP', system-ui, sans-serif;
+  --font-serif: 'Noto Serif JP', 'Hiragino Mincho ProN', serif;
+}
+
+html {
+  scroll-behavior: auto;
+}
+
+body {
+  background-color: var(--color-cream);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  line-height: 1.9;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+/* 未確定箇所のハイライト（原稿差し替え前の作業用。公開前にゼロにする） */
+.pending {
+  background-color: #fff3b0;
+  color: #6b5200;
+  padding: 0 0.15em;
+  border-radius: 2px;
+}
+
+/* Markdown本文（stories / news） */
+.prose-jp {
+  font-size: 1rem;
+}
+.prose-jp h2 {
+  font-size: 1.375rem;
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+  padding-left: 0.75rem;
+  border-left: 4px solid var(--color-sakura);
+}
+.prose-jp h3 {
+  font-size: 1.125rem;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+.prose-jp p {
+  margin-bottom: 1.5rem;
+}
+.prose-jp ul,
+.prose-jp ol {
+  margin: 0 0 1.5rem 1.25rem;
+  list-style: disc;
+}
+.prose-jp ol {
+  list-style: decimal;
+}
+.prose-jp li {
+  margin-bottom: 0.5rem;
+}
+.prose-jp blockquote {
+  margin: 2rem 0;
+  padding: 1.25rem 1.5rem;
+  background-color: #fff;
+  border-left: 4px solid var(--color-sakura-deep);
+  font-family: var(--font-serif);
+}
+.prose-jp blockquote p:last-child {
+  margin-bottom: 0;
+}
+.prose-jp a {
+  color: var(--color-sakura-deep);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.prose-jp table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1.5rem;
+}
+.prose-jp th,
+.prose-jp td {
+  border: 1px solid var(--color-line);
+  padding: 0.5rem 0.75rem;
+  text-align: left;
+}

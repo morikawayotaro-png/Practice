@@ -1,0 +1,124 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Pending from '../components/Pending.astro';
+import PhotoSlot from '../components/PhotoSlot.astro';
+import RelatedLinks from '../components/RelatedLinks.astro';
+import { SITE, sameAsList } from '../data/site';
+import { PAGES } from '../data/pages';
+import { PROFILE_SUMMARY, BASIC_FACTS, ACTS, RESULTS, CURRENT_GOAL } from '../data/profile';
+
+const personSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: SITE.personName,
+  alternateName: SITE.personNameEn,
+  jobTitle: SITE.jobTitle,
+  nationality: '日本',
+  url: new URL('/profile', SITE.url).toString(),
+  mainEntityOfPage: { '@type': 'WebPage', '@id': new URL('/profile', SITE.url).toString() },
+  sameAs: sameAsList(),
+  description: PROFILE_SUMMARY,
+  knowsAbout: ['ゴルフ', 'JLPGAツアー', '女性アスリートの育児と競技の両立'],
+};
+---
+
+<BaseLayout
+  title="プロフィール"
+  description={PAGES.profile.description}
+  updated={PAGES.profile.updated}
+  ogType="profile"
+  jsonLd={personSchema}
+>
+  <div class="mx-auto max-w-3xl px-5 py-12">
+    <h1 class="text-2xl sm:text-3xl">プロフィール</h1>
+
+    <p class="mt-6 border-l-4 border-sakura bg-white p-5 leading-loose">
+      <Pending text={PROFILE_SUMMARY} />
+    </p>
+
+    <PhotoSlot alt="{{要確認: プロフィール写真のalt（誰が何をしている写真か）}}" />
+
+    <section class="mt-12" aria-labelledby="basic-heading">
+      <h2 id="basic-heading" class="text-xl">基本情報</h2>
+      <dl class="mt-4 divide-y divide-line border-y border-line">
+        {
+          BASIC_FACTS.map((fact) => (
+            <div class="grid grid-cols-[7rem_1fr] gap-4 py-3 text-sm sm:grid-cols-[9rem_1fr]">
+              <dt class="text-ink-soft">{fact.label}</dt>
+              <dd>
+                <Pending text={fact.value} />
+              </dd>
+            </div>
+          ))
+        }
+      </dl>
+    </section>
+
+    <section class="mt-12" aria-labelledby="career-heading">
+      <h2 id="career-heading" class="text-xl">経歴</h2>
+      {
+        ACTS.map((act) => (
+          <div class="mt-8">
+            <p class="text-sm text-sakura-deep">{act.act}</p>
+            <h3 class="mt-1 text-lg">
+              <Pending text={act.heading} />
+            </h3>
+            <p class="mt-1 text-sm text-ink-soft">
+              <Pending text={act.period} />
+            </p>
+            <p class="mt-3 leading-loose">
+              <Pending text={act.body} />
+            </p>
+          </div>
+        ))
+      }
+    </section>
+
+    <section class="mt-12" aria-labelledby="results-heading">
+      <h2 id="results-heading" class="text-xl">戦績</h2>
+      <div class="mt-4 overflow-x-auto">
+        <table class="w-full border-collapse text-sm">
+          <thead>
+            <tr class="border-b border-line text-left">
+              <th scope="col" class="py-2 pr-4">年</th>
+              <th scope="col" class="py-2 pr-4">大会</th>
+              <th scope="col" class="py-2">成績</th>
+            </tr>
+          </thead>
+          <tbody>
+            {
+              RESULTS.map((row) => (
+                <tr class="border-b border-line">
+                  <td class="py-2 pr-4 align-top">
+                    <Pending text={row.year} />
+                  </td>
+                  <td class="py-2 pr-4 align-top">
+                    <Pending text={row.tournament} />
+                  </td>
+                  <td class="py-2 align-top">
+                    <Pending text={row.result} />
+                  </td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="mt-12" aria-labelledby="goal-heading">
+      <h2 id="goal-heading" class="text-xl">現在の目標</h2>
+      <p class="mt-4 leading-loose">
+        <Pending text={CURRENT_GOAL} />
+      </p>
+    </section>
+
+    <RelatedLinks
+      links={[
+        { href: '/challenge', label: '今の挑戦', note: '永久シードの現在地' },
+        { href: '/stories/tour-life', label: '家族と旅するツアー暮らし', note: 'ツアー生活の実際' },
+        { href: '/media', label: 'メディア出演・掲載', note: '出演と掲載の履歴' },
+      ]}
+    />
+  </div>
+</BaseLayout>
