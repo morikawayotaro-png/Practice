@@ -29,7 +29,7 @@ const LOGOS = [
   ['sponsors-upper.png', 72, 1910, 566, 207, 'smeg'],
   ['sponsors-upper.png', 72, 2267, 566, 208, 'russeluno'],
   ['sponsors-upper.png', 685, 2267, 566, 208, 'new-era'],
-  ['sponsors-lower.png', 72, 1205, 566, 207, 'ball-maker'],
+  ['sponsors-lower.png', 72, 1205, 566, 207, 'bridgestone'],
   ['sponsors-lower.png', 685, 1205, 566, 207, 'ecco-golf'],
   ['sponsors-lower.png', 72, 1562, 566, 208, 'torinox'],
   ['sponsors-lower.png', 685, 1562, 566, 208, 'masdagolf'],

@@ -56,11 +56,7 @@ export const SPONSOR_GROUPS: SponsorGroup[] = [
     sponsors: [
       { name: 'Russeluno', logo: '/logos/russeluno.png', category: 'WEAR & BAG' },
       { name: 'NEW ERA', logo: '/logos/new-era.png', category: 'CAP' },
-      {
-        name: '{{要確認: BALLのメーカー名（ロゴに社名表記がないため未確認）}}',
-        logo: '/logos/ball-maker.png',
-        category: 'BALL',
-      },
+      { name: 'ブリヂストン', logo: '/logos/bridgestone.png', category: 'BALL' },
       { name: 'ecco GOLF', logo: '/logos/ecco-golf.png', category: 'SHOES' },
       { name: 'TORINOX', logo: '/logos/torinox.png', category: 'SUNGLASSES' },
       { name: 'Masdagolf', logo: '/logos/masdagolf.png', category: 'CLUB' },
