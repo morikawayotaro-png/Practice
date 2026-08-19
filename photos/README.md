@@ -46,7 +46,11 @@ photos/
 | `stories/train-station-hall.jpg` | アーチ型の屋根が続く駅のコンコース | `/stories/tour-life`（ギャラリー） |
 | `stories/city-night-billboards.jpg` | 電光看板が並ぶ夜の街の交差点 | `/stories/tour-life`（ギャラリー） |
 | `stories/home-cooking.jpg` | 滞在先のキッチンで野菜を炒める横峯さくら | `/stories/tour-life`（ギャラリー） |
+| `stories/airport-with-child.jpg` | スーツケース2つの横で子どもと並ぶ横峯さくら | `/stories/tour-life`（ギャラリー） |
+| `stories/cathedral-night.jpg` | 夜の広場で大聖堂を背にした横峯さくら | `/stories/tour-life`（ギャラリー） |
+| `stories/meal-with-child.jpg` | 食事の席で子どもと並ぶ横峯さくら | `/stories/tour-life`（ギャラリー） |
 | `comeback/with-child-grass.jpg` | 草地で子どもと顔を寄せて笑う横峯さくら | `/stories/comeback`（本文写真） |
+| `childcare-on-tour/practice-range-with-child.jpg` | 練習場で子どものスイングに手を添える横峯さくら | `/stories/childcare-on-tour`（本文写真） |
 | `sakura-baton/figador-sumida-jersey.jpg` | SAKURA BATONのロゴが入った背番号4のユニフォーム | `/sakura-baton` |
 | `sponsors/golf-shoe.jpg` | ゴルフシューズを手に持つ横峯さくら | `/sponsors` |
 | `sponsors/smeg-sparkling-water.jpg` | SMEGのスパークリングウォーターメーカーと横峯さくら | `/sponsors` |

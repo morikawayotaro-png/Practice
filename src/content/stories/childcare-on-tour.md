@@ -6,6 +6,10 @@ lead: '{{要確認: 冒頭段落（誰が・何を・いつから・なぜ を4�
 order: 3
 publishDate: 2026-08-19
 updatedDate: 2026-08-19
+image: /photos/childcare-on-tour/practice-range-with-child.webp
+imageAlt: 練習場でクラブを持つ子どもに後ろから手を添える横峯さくら
+imageWidth: 1600
+imageHeight: 2133
 related:
   - href: /stories/tour-life
     label: 家族と旅するツアー暮らし

@@ -51,6 +51,21 @@ gallery:
     width: 1600
     height: 1200
     caption: '{{要確認: この写真の撮影地と年月}}'
+  - src: /photos/stories/airport-with-child.webp
+    alt: 2つのスーツケースの横で子どもと並び、親指を立てる横峯さくら
+    width: 1600
+    height: 2133
+    caption: '{{要確認: この写真の撮影地と年月}}'
+  - src: /photos/stories/cathedral-night.webp
+    alt: 夜の広場で大聖堂を背にして立つ横峯さくら
+    width: 1600
+    height: 1200
+    caption: '{{要確認: この写真の撮影地と年月}}'
+  - src: /photos/stories/meal-with-child.webp
+    alt: 食事の席で子どもと並んで食事をとる横峯さくら
+    width: 1600
+    height: 2133
+    caption: '{{要確認: この写真の撮影地と年月}}'
   - src: /photos/stories/home-cooking.webp
     alt: 滞在先のキッチンでフライパンで野菜を炒める横峯さくら
     width: 1600
