@@ -13,6 +13,10 @@
 # ワイルドカードより前の行に個別の対応を書く（先に書いた行が優先される）。
 #   例: /posts/ha7N6Fwk,/news/2026-08-19-fugador-sumida-u18-champion,301
 #
+# 旧サイトにスポンサー一覧とメディアの独立ページはない
+# （スポンサーはトップページ下部に掲載されていた）。
+# 下記で旧サイトの全URLを網羅している（2026年8月に確認済み）。
+#
 old,new,status
 /mother,/stories/tour-life,301
 /contact,/partners,301
