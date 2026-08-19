@@ -79,8 +79,19 @@ curl -sI https://yokomine-sakura.com | head -20
 curl -sI https://yokomine-sakura.com/about | head -3   # 301 と location: /profile が返る
 ```
 
-対応表がまだ手元にない場合、`docs/redirects.csv` は
-`{{要確認: 旧サイト（Studio）の全ページURL一覧}}` のまま残してある。
+### 現在の対応表（2026年8月時点）
+
+| 旧URL | 新URL | 備考 |
+|---|---|---|
+| `/` | `/` | 変更なし。リダイレクト不要 |
+| `/news` | `/news` | 変更なし。リダイレクト不要 |
+| `/profile` | `/profile` | 変更なし。リダイレクト不要 |
+| `/mother` | `/stories/tour-life` | 301 |
+| `/contact` | `/partners` | 301 |
+| `/posts/:slug` | `/news` | 301。旧サイトの個別記事URLをすべて一覧へ送るワイルドカード |
+
+トップ・NEWS一覧・PROFILEはパスが同じなので、リダイレクトなしでそのまま表示される。
+（旧URLの被リンクと検索評価がそのまま引き継がれる）
 
 ## 4. 切り戻し
 

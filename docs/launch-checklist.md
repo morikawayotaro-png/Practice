@@ -12,7 +12,7 @@
 - [ ] 各storiesページと/faqがAEOの型を満たす（`npm run check:aeo` が全項目○）
 - [ ] スマホ実機で全14ページ確認
 - [ ] DNSのTTLを事前に短縮済み（3600 → 300秒）
-- [ ] 旧サイトの全URLが `docs/redirects.csv` に含まれている
+- [ ] 旧サイトの全URLが `docs/redirects.csv` に含まれている（`/posts/:slug` のワイルドカードで個別記事は網羅済み。他に固有パスのページがないか最終確認）
 - [ ] 旧サイトURLからのリダイレクト動作確認（`curl -sI` で301）
 - [ ] トップのmeta descriptionが定義文になっている
 - [ ] OGP画像を差し替え済み（`public/ogp/default.png` は仮の生成物）

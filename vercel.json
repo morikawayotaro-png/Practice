@@ -2,7 +2,23 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "cleanUrls": true,
   "trailingSlash": false,
-  "redirects": [],
+  "redirects": [
+    {
+      "source": "/mother",
+      "destination": "/stories/tour-life",
+      "permanent": true
+    },
+    {
+      "source": "/contact",
+      "destination": "/partners",
+      "permanent": true
+    },
+    {
+      "source": "/posts/:slug",
+      "destination": "/news",
+      "permanent": true
+    }
+  ],
   "headers": [
     {
       "source": "/(.*)",

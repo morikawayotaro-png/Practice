@@ -3,12 +3,17 @@
 # 行頭 # はコメント。ここを埋めて `npm run redirects` を実行すると
 # vercel.json の "redirects" が生成される。
 #
-# {{要確認: 旧サイト（Studio）の全ページURL一覧}}
-#   旧サイトの公開ページをすべて控え、下の書式で1行ずつ追記する。
-#   書き方の例（実際の旧URLが分かるまでコメントのままにしてある）:
-#     /about,/profile,301
-#     /news-list,/news,301
-#     /sponsor,/sponsors,301
-#     /contact,/partners,301
+# パスが変わらないURLは書かない（リダイレクト不要でそのまま表示される）:
+#   /          トップ
+#   /news      NEWS一覧
+#   /profile   PROFILE
+#
+# /posts/:slug は個別記事のワイルドカード。旧サイトの記事URLをすべて
+# /news（一覧）へ送る。個別記事を新サイトのニュース記事に対応させる場合は、
+# ワイルドカードより前の行に個別の対応を書く（先に書いた行が優先される）。
+#   例: /posts/ha7N6Fwk,/news/2026-08-19-fugador-sumida-u18-champion,301
 #
 old,new,status
+/mother,/stories/tour-life,301
+/contact,/partners,301
+/posts/:slug,/news,301
