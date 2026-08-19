@@ -3,7 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Pending from '../components/Pending.astro';
 import PhotoSlot from '../components/PhotoSlot.astro';
 import RelatedLinks from '../components/RelatedLinks.astro';
-import { SPONSOR_GROUPS } from '../data/sponsors';
+import { SPONSOR_GROUPS, SPECIAL_THANKS } from '../data/sponsors';
 import { PAGES } from '../data/pages';
 ---
 
@@ -74,9 +74,11 @@ import { PAGES } from '../data/pages';
                   <img
                     src={sponsor.logo}
                     alt={sponsor.name}
+                    width={300}
+                    height={120}
                     loading="lazy"
                     decoding="async"
-                    class="h-12 w-auto object-contain"
+                    class="h-12 w-auto shrink-0 object-contain"
                   />
                 ) : (
                   <span
@@ -107,6 +109,19 @@ import { PAGES } from '../data/pages';
         </section>
       ))
     }
+
+    <section class="mt-12" aria-labelledby="special-thanks">
+      <h2 id="special-thanks" class="text-xl">SPECIAL THANKS</h2>
+      <ul class="mt-4 space-y-1 text-sm">
+        {
+          SPECIAL_THANKS.map((item) => (
+            <li>
+              {item.role}: <Pending text={item.name} />
+            </li>
+          ))
+        }
+      </ul>
+    </section>
 
     <RelatedLinks
       links={[

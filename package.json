@@ -14,7 +14,8 @@
     "check:aeo": "node scripts/aeo-check.mjs",
     "check:all": "npm run build && npm run check:build && npm run check:aeo && npm run check:pending",
     "redirects": "node scripts/build-redirects.mjs",
-    "photos": "node scripts/convert-photos.mjs"
+    "photos": "node scripts/convert-photos.mjs",
+    "logos": "node scripts/build-logos.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.3",

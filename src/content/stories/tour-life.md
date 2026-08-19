@@ -12,70 +12,66 @@ imageWidth: 1600
 imageHeight: 2133
 gallery:
   - src: /photos/stories/airport-travel.webp
-    alt: ゴルフバッグとスーツケースを押して空港のロビーに立つ横峯さくら
+    alt: 米国インディアナポリスの空港でゴルフバッグとスーツケースを押す横峯さくら
     width: 1600
     height: 1067
-    caption: '{{要確認: この写真の撮影地と年月}}'
+    caption: 米国インディアナポリスの空港
   - src: /photos/stories/airport-terminal-christmas.webp
-    alt: クリスマスツリーが飾られた空港のターミナルを歩く横峯さくら
+    alt: クリスマスツリーが飾られた米国シカゴの空港のターミナルを歩く横峯さくら
     width: 1600
     height: 2133
-    caption: '{{要確認: この写真の撮影地と年月}}'
+    caption: 米国シカゴの空港
   - src: /photos/stories/train-station-hall.webp
-    alt: アーチ型の屋根が続く駅のコンコースに立つ横峯さくら
+    alt: イタリア・ミラノ中央駅のコンコースに立つ横峯さくら
     width: 1600
     height: 1200
-    caption: '{{要確認: この写真の撮影地と年月}}'
+    caption: イタリア・ミラノ中央駅
   - src: /photos/stories/city-night-billboards.webp
-    alt: 電光看板が並ぶ夜の街の交差点に立つ横峯さくら
+    alt: 米国ニューヨークのタイムズスクエアに立つ横峯さくら
     width: 1600
     height: 1200
-    caption: '{{要確認: この写真の撮影地と年月}}'
+    caption: 米国ニューヨーク・タイムズスクエア
   - src: /photos/stories/city-street-tower.webp
-    alt: タワーが見える街の交差点で笑顔を見せる横峯さくら
+    alt: カナダ・トロントの街の交差点で笑顔を見せる横峯さくら
     width: 1600
     height: 1067
-    caption: '{{要確認: この写真の撮影地と年月}}'
+    caption: カナダ・トロント
   - src: /photos/stories/city-street-portrait.webp
-    alt: 街路樹の並ぶ通りに立つ横峯さくら
+    alt: スペイン・バルセロナの街路に立つ横峯さくら
     width: 1600
     height: 1067
-    caption: '{{要確認: この写真の撮影地と年月}}'
+    caption: スペイン・バルセロナ
   - src: /photos/stories/desert-course-pointing.webp
-    alt: サボテンが生えるコースのティーイングエリアで打つ方向を指す横峯さくら
+    alt: 米国アリゾナ州のコースのティーイングエリアで打つ方向を指す横峯さくら
     width: 1600
     height: 1200
-    caption: '{{要確認: この写真の撮影地と年月}}'
+    caption: 米国アリゾナ州のゴルフコース
   - src: /photos/stories/desert-course-wide.webp
-    alt: 山並みとサボテンが見えるコースのグリーンに立つ横峯さくら
+    alt: 山並みとサボテンが見える米国アリゾナ州のコースのグリーンに立つ横峯さくら
     width: 1600
     height: 1200
-    caption: '{{要確認: この写真の撮影地と年月}}'
+    caption: 米国アリゾナ州のゴルフコース
   - src: /photos/stories/airport-with-child.webp
     alt: 2つのスーツケースの横で子どもと並び、親指を立てる横峯さくら
     width: 1600
     height: 2133
-    caption: '{{要確認: この写真の撮影地と年月}}'
   - src: /photos/stories/cathedral-night.webp
-    alt: 夜の広場で大聖堂を背にして立つ横峯さくら
+    alt: 夜のイタリア・ミラノのドゥオモを背にして立つ横峯さくら
     width: 1600
     height: 1200
-    caption: '{{要確認: この写真の撮影地と年月}}'
+    caption: イタリア・ミラノ ドゥオモ広場
   - src: /photos/stories/walking-with-child.webp
     alt: 子どもと手をつないで歩く横峯さくら
     width: 1200
     height: 1600
-    caption: '{{要確認: この写真の撮影地と年月}}'
   - src: /photos/stories/meal-with-child.webp
     alt: 食事の席で子どもと並んで食事をとる横峯さくら
     width: 1600
     height: 2133
-    caption: '{{要確認: この写真の撮影地と年月}}'
   - src: /photos/stories/home-cooking.webp
     alt: 滞在先のキッチンでフライパンで野菜を炒める横峯さくら
     width: 1600
     height: 1200
-    caption: '{{要確認: この写真の撮影地と年月}}'
 related:
   - href: /stories/childcare-on-tour
     label: ツアーに託児所を
