@@ -9,8 +9,8 @@ cd "$(dirname "$0")/.."
 TARGETS=$(find . -name "*.html" -not -path "./node_modules/*"; find data -name "*.json")
 FAIL=0
 
-echo "── 禁止語（第6章）"
-for word in 便利 お得 人気 限定 最新 トレンド バズ 映え 今すぐ お見逃しなく 圧倒的 業界最高 大人気; do
+echo "── 禁止語（v1.4第6章＋規定書v3：頑張れ・「時間がない」を追加）"
+for word in 便利 お得 人気 限定 最新 トレンド バズ 映え 今すぐ お見逃しなく 圧倒的 業界最高 大人気 頑張れ 時間がない; do
   hits=$(grep -n "$word" $TARGETS 2>/dev/null)
   if [ -n "$hits" ]; then
     echo "NG: 「$word」が使われています"
@@ -50,10 +50,10 @@ else
 fi
 
 echo ""
-echo "── 「〜ではなく」構文の使用箇所"
+echo "── 「〜ではなく」構文の使用箇所（上限：サイト全体で2回）"
 grep -n "ではなく" $TARGETS 2>/dev/null | grep -v "^Binary"
-echo "（確定：ステートメント詩文・SMEGヒーロー・SHOTLYZERの3か所を維持する。"
-echo "  詩文は上限2回のカウント外として扱う［2026-08-13 決定］。新規追加は不可）"
+echo "（確定：SMEGヒーロー・SHOTLYZERの2か所のみ。新規追加は不可。"
+echo "  ステートメントは挑戦の質 版に差し替え済みで構文を含まない）"
 
 echo ""
 echo "── 「物語」「共感」の使用箇所（上限：各5回）"
