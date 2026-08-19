@@ -49,6 +49,24 @@ import { PAGES } from '../data/pages';
             {group.heading}
           </h2>
           {group.note && <p class="mt-1 text-sm text-ink-soft">{group.note}</p>}
+          {group.id === 'equipment' && (
+            <div class="mt-4 grid gap-4 sm:grid-cols-2">
+              <PhotoSlot
+                src="/photos/sponsors/golf-bag.webp"
+                alt="コースでゴルフバッグからクラブを取り出す横峯さくら"
+                width={1600}
+                height={1068}
+                class="my-0"
+              />
+              <PhotoSlot
+                src="/photos/sponsors/club-factory.webp"
+                alt="工房で仕上げ前のアイアンヘッドを手に取って確かめる横峯さくら"
+                width={1600}
+                height={1067}
+                class="my-0"
+              />
+            </div>
+          )}
           <ul class="mt-4 grid gap-4 sm:grid-cols-2">
             {group.sponsors.map((sponsor) => (
               <li class="flex items-center gap-4 border border-line bg-white p-4">

@@ -61,6 +61,11 @@ gallery:
     width: 1600
     height: 1200
     caption: '{{要確認: この写真の撮影地と年月}}'
+  - src: /photos/stories/walking-with-child.webp
+    alt: 子どもと手をつないで歩く横峯さくら
+    width: 1200
+    height: 1600
+    caption: '{{要確認: この写真の撮影地と年月}}'
   - src: /photos/stories/meal-with-child.webp
     alt: 食事の席で子どもと並んで食事をとる横峯さくら
     width: 1600

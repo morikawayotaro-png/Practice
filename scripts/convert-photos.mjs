@@ -45,12 +45,26 @@ for (const file of files) {
   mkdirSync(outDir, { recursive: true });
   const outPath = join(outDir, `${name}.webp`);
 
-  const image = sharp(file).rotate();
-  const meta = await image.metadata();
-  await image
-    .resize({ width: Math.min(meta.width ?? maxWidth, maxWidth), withoutEnlargement: true })
-    .webp({ quality: 82 })
-    .toFile(outPath);
+  const meta = await sharp(file).metadata();
+  const width = Math.min(meta.width ?? maxWidth, maxWidth);
+  const encode = (quality, w) =>
+    sharp(file)
+      .rotate()
+      .resize({ width: w, withoutEnlargement: true })
+      .webp({ quality })
+      .toFile(outPath);
+
+  // 500KBに収まるまで、品質→幅の順で落としていく
+  const steps = [
+    [82, width],
+    [68, width],
+    [68, Math.min(width, 1200)],
+    [60, Math.min(width, 1200)],
+  ];
+  for (const [quality, w] of steps) {
+    await encode(quality, w);
+    if (statSync(outPath).size <= 500 * 1024) break;
+  }
 
   const after = statSync(outPath).size;
   const before = statSync(file).size;
