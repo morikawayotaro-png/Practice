@@ -487,6 +487,7 @@ body:not(.has-hero) .site-header { color: var(--ink); }
 .gallery { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
 @media (min-width: 768px) { .gallery { gap: 40px; } }
 .gallery img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; }
+@media (min-width: 768px) { .gallery--3 { grid-template-columns: repeat(3, 1fr); } }
 
 /* ---------- フォーム ---------- */
 .form-field { margin-bottom: 32px; }
