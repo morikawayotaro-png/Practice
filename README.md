@@ -38,6 +38,20 @@ node scripts/build-products.mjs
 
 製品が12点を超えたらカテゴリーごとにページを分ける（v1.4 第4-6章）。
 
+### ジャーナルの記事を公開する
+
+`/journal/` は発信開始に備えて用意済み（現在は空の状態で、noindex・導線未接続）。
+記事の追加は `data/journal.json` に1件追記し、本文を `journal/<slug>/index.html` として作成、
+生成スクリプトを実行する。
+
+```
+node scripts/build-journal.mjs
+```
+
+最初の記事を公開するときに、次の3点をあわせて行う：
+`journal/index.html` の noindex メタタグを外す／フッターにリンクを追加する／`sitemap.xml` に登録する。
+グローバルナビは5項目のまま変えない（v1.4 第3章）。
+
 ### 公開前チェック
 
 ```
