@@ -29,9 +29,8 @@
         ]
       ],
       "priceJpy": 44000,
-      "image": null,
-      "imageAlt": "VELLIX v14",
-      "imageNote": "テクタイト支給の正規素材待ち。黒背景素材は背景をアイボリー（#F5F1E8）に置換し彩度を落として使用する（第9章）"
+      "image": "/assets/img/trys_shotnavi_vellix_tee_03.jpg",
+      "imageAlt": "VELLIX v14を着けてティーアップする手元"
     },
     {
       "id": "evolve-g2",
@@ -105,9 +104,8 @@
         ]
       ],
       "priceJpy": 59950,
-      "image": null,
-      "imageAlt": "EXCEEDS",
-      "imageNote": "テクタイト支給の正規素材待ち。黒背景素材は背景をアイボリーに置換し彩度を落として使用する"
+      "image": "/assets/img/trys_shotnavi_exceeds_bench_01.jpg",
+      "imageAlt": "夕暮れのベンチに置かれたEXCEEDSとゴルフボール"
     },
     {
       "id": "gr-leo-pro",
@@ -182,9 +180,8 @@
         ]
       ],
       "priceJpy": 24200,
-      "image": null,
-      "imageAlt": "SHOTLYZER",
-      "imageNote": "テクタイト支給の正規素材待ち。黒背景素材は背景をアイボリーに置換し彩度を落として使用する"
+      "image": "/assets/img/trys_shotnavi_shotlyzer_grass_02.jpg",
+      "imageAlt": "芝の上のSHOTLYZER。計測画面にヘッドスピードとミート率"
     },
     {
       "id": "insolyis",
@@ -208,9 +205,8 @@
         ]
       ],
       "priceJpy": 39600,
-      "image": null,
-      "imageAlt": "INSOLYIS",
-      "imageNote": "テクタイト支給の正規素材待ち。黒背景素材は背景をアイボリーに置換し彩度を落として使用する"
+      "image": "/assets/img/trys_shotnavi_insolyis_locker_04.jpg",
+      "imageAlt": "クラブハウスに置かれたINSOLYISのインソール"
     }
   ]
 }
