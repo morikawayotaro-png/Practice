@@ -38,20 +38,6 @@ node scripts/build-products.mjs
 
 製品が12点を超えたらカテゴリーごとにページを分ける（v1.4 第4-6章）。
 
-### ジャーナルの記事を公開する
-
-`/journal/` は発信開始に備えて用意済み（現在は空の状態で、noindex・導線未接続）。
-記事の追加は `data/journal.json` に1件追記し、本文を `journal/<slug>/index.html` として作成、
-生成スクリプトを実行する。
-
-```
-node scripts/build-journal.mjs
-```
-
-最初の記事を公開するときに、次の3点をあわせて行う：
-`journal/index.html` の noindex メタタグを外す／フッターにリンクを追加する／`sitemap.xml` に登録する。
-グローバルナビは5項目のまま変えない（v1.4 第3章）。
-
 ### 公開前チェック
 
 ```
@@ -90,7 +76,8 @@ bash scripts/precheck.sh
 - 「〜ではなく」構文はステートメント詩文・SMEGヒーロー・SHOTLYZERの3か所を維持（詩文は上限2回のカウント外）
 - `/about/` のチーム面は写真なしで構成する（A-3の撮影・配置は行わない）
 - VELLIX v14／EXCEEDS／SHOTLYZER／INSOLYIS のタイポグラフィプレート表示を承認
-- SMEG STORIES のURLは https://smegstories.com（当初のハイフンあり表記から訂正）。メディア事業の実績として /business/ にも運営メディアリンクを明記
+- SMEG STORIES のURLは https://smegstories.com（当初のハイフンあり表記から訂正）。メディア事業の実績として /business/ に運営内容（アンバサダーのストーリー、ジャーナルでの情報発信）とリンクを明記
+- コーポレートサイトにジャーナル（読みもの）ページは置かない。記事の発信はSMEG STORIES側で行う（v1.4 第3章の「（将来）/journal」は計画から外す）
 - PRECIS LM は発売済みを確認。掲載を継続
 
 ## 公開までの残作業（v1.4 第12章より）

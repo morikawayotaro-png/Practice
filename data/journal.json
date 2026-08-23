@@ -1,4 +1,0 @@
-{
-  "note": "ジャーナルの記事一覧。1記事1データで管理し、追加・削除はこのファイルの編集と scripts/build-journal.mjs の実行のみで完結する。記事本文は journal/<slug>/index.html として作成する。最初の記事を公開するタイミングで、フッターへのリンク追加と sitemap.xml への登録を行うこと。",
-  "articles": []
-}
