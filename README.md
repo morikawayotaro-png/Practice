@@ -15,6 +15,7 @@
 /brands/                取扱ブランド
 /brands/smeg/           SMEG（販売・メディア運営）
 /brands/shot-navi/      Shot Navi（正規代理店）
+/brands/lucaffe/        Lucaffe（エスプレッソマシン La Piccola とコーヒー）
 /company/               会社概要（経営陣）
 /contact/               お問い合わせ
 /privacy/               プライバシーポリシー
@@ -83,6 +84,9 @@ bash scripts/precheck.sh
 ## 公開までの残作業（v1.4 第12章より）
 
 - [ ] Shot Naviセクションの事実関係（発売年・PGA認定/推奨の別・日本製の範囲）をテクタイトに最終確認
+- [ ] Lucaffe：取扱区分の正式名称（正規代理店・正規販売店など）を確認し、カードとページの表記を統一
+- [ ] Lucaffe：定期お届け便の条件（貸与元＝テクタイト ルカフェ株式会社、無料修理の期間と起点、最低利用6回）を最終確認
+- [ ] Lucaffe：La Piccolaの画像5点（ステンレス／ゴールドの静物、台所シーン等）をファイルで受領し、ヒーロー・ギャラリー・カードのプレースホルダーを差し替え
 - [ ] 画像のWebP変換（現状はJPEG。この環境に変換ツールがないため未実施）
 - [ ] テクタイトから正式な取扱機種リスト・価格表（メーカー希望小売価格）を取り寄せ、JSONと照合
       （VELLIX v14／EXCEEDS／SHOTLYZER／INSOLYIS のタイポグラフィプレート表示は承認済み。

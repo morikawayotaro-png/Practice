@@ -305,6 +305,10 @@ body:not(.has-hero) .site-header { color: var(--ink); }
 .card img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; margin-bottom: 24px; }
 .card--square img { aspect-ratio: 1 / 1; }
 
+/* ブランド三列（勝負／楽しみ／休息）。1列に複数ブランドを縦積みできる */
+.brand-col { display: grid; gap: 40px; align-content: start; }
+.brand-col > .label { margin-bottom: -16px; }
+
 /* ---------- 番号（ブロンズの細い番号） ---------- */
 .num {
   font-family: var(--font-sans);
