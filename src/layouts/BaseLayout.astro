@@ -18,6 +18,8 @@ interface Props {
   jsonLd?: Json | Json[];
   /** ページ末尾に更新日を出すか */
   showUpdated?: boolean;
+  /** 本文の最大幅。更新日の左端をページ本文にそろえるために使う */
+  width?: 'narrow' | 'wide';
 }
 
 const {
@@ -29,6 +31,7 @@ const {
   lang = 'ja',
   jsonLd,
   showUpdated = true,
+  width = 'narrow',
 } = Astro.props;
 
 const pathname = Astro.url.pathname.replace(/\/$/, '') || '/';
@@ -90,7 +93,12 @@ const fullTitle =
       <slot />
       {
         showUpdated && updated && (
-          <div class="mx-auto max-w-3xl px-5 pt-12">
+          <div
+            class:list={[
+              'mx-auto px-5 pt-12',
+              width === 'wide' ? 'max-w-5xl' : 'max-w-3xl',
+            ]}
+          >
             <UpdatedDate date={updated} />
           </div>
         )
