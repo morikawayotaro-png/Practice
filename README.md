@@ -51,7 +51,7 @@ bash scripts/precheck.sh
 
 `assets/js/site.js` の `siteConfig`:
 
-- `urls.smegStories` — 設定済み（https://smeg-stories.com）
+- `urls.smegStories` — 設定済み（https://smegstories.com ※2026-08-19にハイフンなしへ訂正）
 - `urls.smegOnlineStore` — SMEGオンラインストアのURL（未設定の間、リンクは自動で非活性表示）
 - `urls.trysStore` — TRY'S STORE（開店後に設定。それまで「準備中」表示）
 - `contactEndpoint` — フォーム送信API（Resend / SendGrid 等）。未設定の間は info@ 宛のメール案内にフォールバック
@@ -76,7 +76,7 @@ bash scripts/precheck.sh
 - 「〜ではなく」構文はステートメント詩文・SMEGヒーロー・SHOTLYZERの3か所を維持（詩文は上限2回のカウント外）
 - `/about/` のチーム面は写真なしで構成する（A-3の撮影・配置は行わない）
 - VELLIX v14／EXCEEDS／SHOTLYZER／INSOLYIS のタイポグラフィプレート表示を承認
-- SMEG STORIES のURLは https://smeg-stories.com
+- SMEG STORIES のURLは https://smegstories.com（当初のハイフンあり表記から訂正）。メディア事業の実績として /business/ にも運営メディアリンクを明記
 - PRECIS LM は発売済みを確認。掲載を継続
 
 ## 公開までの残作業（v1.4 第12章より）

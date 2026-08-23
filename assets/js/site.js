@@ -9,7 +9,7 @@ window.siteConfig = {
   contactLocal: "info",
   contactDomain: "trys-inc.co.jp",
   urls: {
-    smegStories: "https://smeg-stories.com",
+    smegStories: "https://smegstories.com",
     /* TODO: 公開前に SMEGオンラインストアの正式URLを設定する */
     smegOnlineStore: "",
     trysStore: "" /* TRY'S STORE は準備中。開店後にURLを設定 */
