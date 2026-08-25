@@ -7,6 +7,11 @@ import sitemap from '@astrojs/sitemap';
 export default defineConfig({
   site: 'https://shiho-oyama.example.com',
   trailingSlash: 'ignore',
-  integrations: [sitemap()],
+  integrations: [
+    sitemap({
+      // canonical（末尾スラッシュなし）と表記を揃える
+      serialize: (item) => ({ ...item, url: item.url.replace(/(.+)\/$/, '$1') }),
+    }),
+  ],
   build: { inlineStylesheets: 'always' },
 });
