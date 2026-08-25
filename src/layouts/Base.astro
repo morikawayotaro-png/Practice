@@ -1,0 +1,112 @@
+---
+import '../styles/global.css';
+import { site } from '../data/site';
+import { profile } from '../data/profile';
+import JsonLd from '../components/JsonLd.astro';
+
+export type Props = {
+  title: string;
+  description: string;
+  /** ページ個別の構造化データ */
+  schema?: unknown;
+  /** OGP画像（相対パス） [要確認] 写真差し替え時に更新 */
+  ogImage?: string;
+};
+
+const { title, description, schema, ogImage = '/ogp.png' } = Astro.props;
+const canonical = new URL(Astro.url.pathname.replace(/\/$/, '') || '/', Astro.site ?? site.origin).href;
+const ogImageUrl = new URL(ogImage, Astro.site ?? site.origin).href;
+const path = Astro.url.pathname.replace(/\/$/, '') || '/';
+
+const personSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  '@id': `${site.origin}/#person`,
+  name: profile.name,
+  alternateName: [profile.alternateName, profile.nameEn, profile.nameKana],
+  url: `${site.origin}/`,
+  jobTitle: profile.jobTitle,
+  description:
+    '宮崎県出身のプロゴルファー。JLPGAツアー通算18勝、2006年賞金女王。3度の長期離脱から復帰し、2026年もツアーに出場している。',
+  birthDate: profile.birthDate,
+  birthPlace: {
+    '@type': 'Place',
+    name: profile.birthPlace,
+    address: { '@type': 'PostalAddress', addressRegion: '宮崎県', addressCountry: 'JP' },
+  },
+  nationality: { '@type': 'Country', name: 'Japan' },
+  gender: 'Female',
+  memberOf: {
+    '@type': 'SportsOrganization',
+    name: '日本女子プロゴルフ協会（JLPGA）',
+    url: 'https://www.lpga.or.jp/',
+  },
+  award: [
+    '2006年 JLPGA賞金ランキング1位（賞金女王）',
+    'JLPGAツアー通算18勝',
+    'LPGAツアーチャンピオンシップリコーカップ 優勝（2005年・2013年）',
+    'ヨネックスレディス 3勝（2006年・2015年・2018年）',
+  ],
+  knowsAbout: ['ゴルフ', 'JLPGAツアー', '長期離脱からの競技復帰', 'アスリートのコンディショニング'],
+  sameAs: profile.sameAs,
+};
+---
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={site.title} />
+    <meta property="og:locale" content="ja_JP" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImageUrl} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <JsonLd schema={personSchema} />
+    {schema && <JsonLd schema={schema} />}
+  </head>
+  <body>
+    <a class="skip-link" href="#main">本文へスキップ</a>
+    <header class="site-header">
+      <div class="wrap">
+        <p class="site-title"><a href="/">大山志保 公式サイト</a></p>
+        <nav class="site-nav" aria-label="サイト内メニュー">
+          <ul>
+            {site.nav.map((item) => (
+              <li>
+                <a href={item.href} aria-current={item.href === path ? 'page' : undefined}>{item.label}</a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <main id="main">
+      <div class="wrap">
+        <slot />
+      </div>
+    </main>
+    <footer class="site-footer">
+      <div class="wrap">
+        <nav aria-label="フッターメニュー">
+          <ul>
+            {site.nav.map((item) => (<li><a href={item.href}>{item.label}</a></li>))}
+          </ul>
+        </nav>
+        <p>
+          大山志保（プロゴルファー、2006年賞金女王）の公式サイト。成績はJLPGA公式の記録に基づく。
+        </p>
+        <p>&copy; {new Date().getFullYear()} 大山志保</p>
+      </div>
+    </footer>
+  </body>
+</html>

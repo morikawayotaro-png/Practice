@@ -1,0 +1,7 @@
+---
+const { heading = 'In English' } = Astro.props as { heading?: string };
+---
+<section class="en-summary" lang="en" aria-label={heading}>
+  <h2>{heading}</h2>
+  <slot />
+</section>

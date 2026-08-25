@@ -1,0 +1,99 @@
+---
+import Base from '../layouts/Base.astro';
+import EnSummary from '../components/EnSummary.astro';
+import { profile, currentAge } from '../data/profile';
+import { site } from '../data/site';
+import { season, lastUpdated } from '../data/season';
+
+const latest = season[0];
+const title = '大山志保 公式サイト｜宮崎県出身のプロゴルファー、JLPGAツアー通算18勝・2006年賞金女王';
+const description =
+  '大山志保は宮崎県出身のプロゴルファー。JLPGAツアー通算18勝、2006年賞金女王。3度の長期離脱から復帰し、2026年もJLPGAツアーに出場している。';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfilePage',
+  '@id': `${site.origin}/#profilepage`,
+  url: `${site.origin}/`,
+  name: title,
+  description,
+  inLanguage: 'ja',
+  dateModified: lastUpdated,
+  mainEntity: { '@id': `${site.origin}/#person` },
+  isPartOf: {
+    '@type': 'WebSite',
+    '@id': `${site.origin}/#website`,
+    url: `${site.origin}/`,
+    name: site.title,
+    inLanguage: 'ja',
+  },
+};
+---
+<Base title={title} description={description} schema={schema}>
+  <h1>大山志保</h1>
+
+  <p class="lead">
+    大山志保は、宮崎県出身のプロゴルファー。JLPGAツアー通算18勝、2006年賞金女王。左肘の手術、頚椎椎間板ヘルニア、原因不明の全身の痛みによる3度の長期離脱を経験し、そのたびにツアーへ戻ってきた。2024年11月の伊藤園レディスで2年5カ月ぶりに復帰し、2026年3月のアクサレディスin MIYAZAKIで約4年ぶりに予選を通過した。
+  </p>
+
+  <ul class="facts">
+    <li>
+      <span class="k">JLPGAツアー通算</span>
+      <span class="v">{profile.tourWins}<small> 勝</small></span>
+    </li>
+    <li>
+      <span class="k">賞金ランキング1位</span>
+      <span class="v">2006<small> 年</small></span>
+    </li>
+    <li>
+      <span class="k">長期離脱からの復帰</span>
+      <span class="v">3<small> 度</small></span>
+    </li>
+    <li>
+      <span class="k">年齢（{lastUpdated}時点）</span>
+      <span class="v">{currentAge}<small> 歳</small></span>
+    </li>
+  </ul>
+
+  <h2>直近の出場と結果</h2>
+  <p>
+    {profile.name}は{season[0] ? '2026年シーズンもJLPGAツアーに出場している' : '2026年シーズンの出場情報を準備中'}。
+    直近の出場は{latest.tournament}（{latest.dateLabel}）で、結果は{latest.result}だった。
+  </p>
+  <p class="updated">
+    今季の出場一覧の最終更新：<time datetime={lastUpdated}>{lastUpdated}</time>
+  </p>
+  <p><a href="/now">今季の出場と結果をすべて見る</a></p>
+
+  <h2>どのような選手か</h2>
+  <p>
+    2000年にJLPGAの最終プロテストに合格。2003年のベルーナレディースカップで初優勝し、2006年には年間5勝、獲得賞金1億6629万957円で賞金ランキング1位となった。不動裕理の7年連続賞金女王を止めての初戴冠だった。
+  </p>
+  <p>
+    2009年に米国LPGAツアーへ参戦したが、左肘の手術を受けて撤退。2011年のマスターズGCレディースでポーラ・クリーマーとのプレーオフを制して復活優勝を果たした。2017年には頚椎椎間板ヘルニアで離脱し、2018年の復帰4戦目のヨネックスレディスで優勝している。この大会3勝目は不動裕理に次いで史上2人目で、通算18勝目にあたる。
+  </p>
+  <p>
+    2022年6月のアース・モンダミンカップを最後に、原因不明の全身の痛みで試合に出られない状態が続いた。JLPGAのトーナメント特別保障制度を利用し、2024年11月の伊藤園レディスで868日ぶりにツアーへ戻った。「不死鳥」と呼ばれるのは、この3度の離脱と復帰による。
+  </p>
+
+  <ul class="next-links">
+    <li><a href="/story">年表で経緯を読む（1977年〜2026年）</a></li>
+    <li><a href="/records">優勝18試合と年度別成績を見る</a></li>
+    <li><a href="/partners">パートナー企業向けの提案を読む</a></li>
+    <li><a href="/speaking">講演・トークイベントの依頼について</a></li>
+  </ul>
+
+  <EnSummary>
+    <p>
+      Shiho Oyama is a Japanese professional golfer from Miyazaki Prefecture. She has won 18 JLPGA
+      Tour titles and topped the money list in 2006, ending Yuri Fudo's seven-year run.
+    </p>
+    <p>
+      She has come back from three long absences: left elbow surgery that ended her 2009 LPGA Tour
+      campaign, a cervical disc herniation in 2017, and an undiagnosed condition causing pain
+      throughout her body that kept her off the tour from June 2022. She returned in November 2024
+      at the Itoen Ladies after 868 days, and made her first cut in about four years at the AXA
+      Ladies in MIYAZAKI in March 2026.
+    </p>
+  </EnSummary>
+</Base>
