@@ -1,0 +1,137 @@
+---
+import Base from '../layouts/Base.astro';
+import EnSummary from '../components/EnSummary.astro';
+import { wins, winsByYear } from '../data/wins';
+import { profile } from '../data/profile';
+import { site } from '../data/site';
+
+const title = '記録｜大山志保のJLPGAツアー優勝18試合と主要タイトル';
+const description =
+  '大山志保のJLPGAツアー通算勝利数は18勝。2006年に賞金女王、ヨネックスレディスは3勝。優勝18試合の一覧と年度別の優勝数をまとめた。';
+
+const years = Object.keys(winsByYear).map(Number).sort((a, b) => a - b);
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  '@id': `${site.origin}/records#wins`,
+  name: '大山志保 JLPGAツアー優勝一覧',
+  description: '大山志保（プロゴルファー、2006年賞金女王）のJLPGAツアー優勝18試合。',
+  numberOfItems: wins.length,
+  itemListOrder: 'https://schema.org/ItemListOrderAscending',
+  itemListElement: wins.map((w) => ({
+    '@type': 'ListItem',
+    position: w.no,
+    item: {
+      '@type': 'SportsEvent',
+      name: `${w.year}年 ${w.tournament}`,
+      startDate: w.month ? `${w.year}-${String(w.month).padStart(2, '0')}` : `${w.year}`,
+      sport: 'ゴルフ',
+      location: { '@type': 'Country', name: '日本' },
+      organizer: { '@type': 'SportsOrganization', name: '日本女子プロゴルフ協会（JLPGA）' },
+      performer: { '@id': `${site.origin}/#person` },
+      description: w.note ?? `大山志保のJLPGAツアー通算${w.no}勝目。`,
+    },
+  })),
+};
+---
+<Base title={title} description={description} schema={schema}>
+  <h1>記録</h1>
+
+  <p class="lead">
+    大山志保（プロゴルファー、宮崎県出身）のJLPGAツアー通算勝利数は18勝。2006年に賞金ランキング1位となり、ヨネックスレディスは2006年・2015年・2018年の3度制している。公式戦はLPGAツアーチャンピオンシップリコーカップで2勝。
+  </p>
+
+  <h2>主要タイトル</h2>
+  <ul>
+    <li>JLPGAツアー通算18勝（2003年〜2018年）</li>
+    <li>2006年 賞金ランキング1位。獲得賞金1億6629万957円</li>
+    <li>公式戦2勝：LPGAツアーチャンピオンシップリコーカップ（2005年・2013年）</li>
+    <li>ヨネックスレディス3勝（2006年・2015年・2018年）。同一大会3勝は不動裕理に次いで史上2人目</li>
+    <li>マスターズGCレディース3勝（2008年・2011年・2014年）</li>
+  </ul>
+
+  <h2>JLPGAツアー優勝18試合</h2>
+  <div class="table-scroll">
+    <table>
+      <caption>大山志保のJLPGAツアー優勝一覧。大会名は当時の名称。</caption>
+      <thead>
+        <tr>
+          <th scope="col" class="num">通算</th>
+          <th scope="col">年</th>
+          <th scope="col">大会</th>
+          <th scope="col">備考</th>
+        </tr>
+      </thead>
+      <tbody>
+        {wins.map((w) => (
+          <tr>
+            <td class="num">{w.no}勝目</td>
+            <td class="num">
+              <time datetime={w.month ? `${w.year}-${String(w.month).padStart(2, '0')}` : `${w.year}`}>
+                {w.year}年{w.month ? `${w.month}月` : ''}
+              </time>
+            </td>
+            <td>{w.tournament}{w.official ? '（公式戦）' : ''}</td>
+            <td>{w.note ?? ''}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+  <p class="note">
+    <span class="flag">[要確認]</span>
+    大会名の正式表記、各試合の開催月、公式戦の区分は当時の大会格付けに基づく。JLPGA公式の選手ページで最終照合する。
+  </p>
+
+  <h2>年度別の優勝数</h2>
+  <div class="table-scroll">
+    <table>
+      <caption>優勝を挙げた年と、その年の勝利数。</caption>
+      <thead>
+        <tr>
+          <th scope="col">年</th>
+          <th scope="col" class="num">優勝数</th>
+          <th scope="col">大会</th>
+        </tr>
+      </thead>
+      <tbody>
+        {years.map((y) => (
+          <tr>
+            <td class="num"><time datetime={`${y}`}>{y}年</time></td>
+            <td class="num">{winsByYear[y]}勝</td>
+            <td>{wins.filter((w) => w.year === y).map((w) => w.tournament).join('、')}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+  <p class="note">
+    <span class="flag">[要確認]</span>
+    年度別の獲得賞金額と賞金ランキング順位は、JLPGA公式の記録で確認のうえ追加する。
+  </p>
+
+  <h2>公式記録の参照先</h2>
+  <ul>
+    {profile.officialLinks.map((l) => (
+      <li><a href={l.url} rel="noopener noreferrer" target="_blank">{l.label}</a></li>
+    ))}
+  </ul>
+
+  <ul class="next-links">
+    <li><a href="/story">優勝と離脱の経緯を年表で読む</a></li>
+    <li><a href="/now">今季の出場と結果を見る</a></li>
+  </ul>
+
+  <EnSummary>
+    <p>
+      Shiho Oyama has 18 JLPGA Tour victories, won between 2003 and 2018. She led the money list in
+      2006 with 166,290,957 yen, a tour record at the time.
+    </p>
+    <p>
+      Her wins include two majors at the LPGA Tour Championship Ricoh Cup (2005, 2013) and three
+      titles at the Yonex Ladies (2006, 2015, 2018), making her the second player after
+      Yuri Fudo to win that event three times.
+    </p>
+  </EnSummary>
+</Base>
