@@ -13,9 +13,9 @@ export type Props = {
   ogImage?: string;
 };
 
-const { title, description, schema, ogImage = '/ogp.png' } = Astro.props;
+const { title, description, schema, ogImage = site.ogImage } = Astro.props;
 const canonical = new URL(Astro.url.pathname.replace(/\/$/, '') || '/', Astro.site ?? site.origin).href;
-const ogImageUrl = new URL(ogImage, Astro.site ?? site.origin).href;
+const ogImageUrl = ogImage ? new URL(ogImage, Astro.site ?? site.origin).href : null;
 const path = Astro.url.pathname.replace(/\/$/, '') || '/';
 
 const personSchema = {
@@ -65,11 +65,12 @@ const personSchema = {
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
-    <meta property="og:image" content={ogImageUrl} />
-    <meta name="twitter:card" content="summary_large_image" />
+    {ogImageUrl && <meta property="og:image" content={ogImageUrl} />}
+    <meta name="twitter:card" content={ogImageUrl ? 'summary_large_image' : 'summary'} />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="sitemap" href="/sitemap-index.xml" />
     <JsonLd schema={personSchema} />
     {schema && <JsonLd schema={schema} />}

@@ -10,6 +10,8 @@ export const site = {
    * 空のあいだはメールでの問い合わせ導線を表示する。 [要確認]
    */
   formEndpoint: '' as string,
+  /** OGP画像のパス。写真が用意でき次第 public/ に置いてここに設定する [要確認] */
+  ogImage: '' as string,
   nav: [
     { href: '/', label: 'トップ' },
     { href: '/story', label: 'ストーリー' },
