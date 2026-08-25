@@ -1,0 +1,138 @@
+---
+import Base from '../layouts/Base.astro';
+import EnSummary from '../components/EnSummary.astro';
+import { site } from '../data/site';
+
+const title = '講演・メディア｜大山志保への講演依頼と出演実績';
+const description =
+  '2006年の賞金女王・大山志保は、長期離脱からの復帰と競技継続をテーマにした講演・トークイベントの依頼を受け付けている。テーマ例と依頼の流れ。';
+
+const themes = [
+  {
+    title: '3度の離脱から、そのつど戻ってきた話',
+    body: '左肘の手術、頚椎椎間板ヘルニア、原因不明の全身の痛み。競技を続けると決めるまでに何を考え、何を決めたのかを、時期を追って話す。',
+    audience: '企業の社員向け研修、周年行事、営業所会',
+  },
+  {
+    title: '診断がつかない状態で、どう日々を組み立てたか',
+    body: '2022年から約2年5カ月、試合に出られない期間があった。原因がわからないまま生活と練習をどう組み直したかを扱う。医学的な説明はせず、本人の経験の範囲で話す。',
+    audience: '医療・介護・福祉に関わる組織、健康経営に取り組む企業',
+  },
+  {
+    title: '賞金女王になった年と、その次の年',
+    body: '2006年に年間5勝を挙げて賞金ランキング1位になった。目標を達成した直後に何が起きるかという話として構成する。',
+    audience: '営業部門、目標管理をテーマにした研修',
+  },
+  {
+    title: '40代、50代で競技を続けるための体との付き合い方',
+    body: '練習量の決め方、痛みの扱い方、休むという判断。同年代の参加者に向けた内容にできる。',
+    audience: '一般向け講演、自治体の健康イベント',
+  },
+  {
+    title: '宮崎とゴルフ',
+    body: '宮崎県宮崎市出身。地元でのトーナメント出場や、県内のゴルフ環境について話す。',
+    audience: '宮崎県内の企業、自治体、学校',
+  },
+];
+
+const formats = [
+  '講演（60分〜90分）',
+  'トークセッション・対談（進行役をご用意いただく形式）',
+  'オンライン講演',
+  'ゴルフレッスンを含むイベント',
+];
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  '@id': `${site.origin}/speaking#speaking`,
+  name: '大山志保の講演・トークイベント',
+  serviceType: '講演、トークセッション、企業イベント登壇',
+  description:
+    '2006年のJLPGA賞金女王・大山志保による講演。長期離脱からの復帰、競技の継続、コンディショニングをテーマとする。',
+  provider: { '@id': `${site.origin}/#person` },
+  areaServed: { '@type': 'Country', name: 'Japan' },
+  availableChannel: {
+    '@type': 'ServiceChannel',
+    serviceUrl: `${site.origin}/contact`,
+    name: 'お問い合わせフォーム',
+  },
+  offers: {
+    '@type': 'Offer',
+    availability: 'https://schema.org/InStock',
+    priceSpecification: {
+      '@type': 'PriceSpecification',
+      priceCurrency: 'JPY',
+      description: '講演料は形式・時間・開催地により個別に見積もる。',
+    },
+    url: `${site.origin}/contact`,
+  },
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: '講演テーマ',
+    itemListElement: themes.map((t) => ({
+      '@type': 'Offer',
+      itemOffered: { '@type': 'Service', name: t.title, description: t.body },
+    })),
+  },
+};
+---
+<Base title={title} description={description} schema={schema}>
+  <h1>講演・メディア</h1>
+
+  <p class="lead">
+    大山志保（プロゴルファー、2006年賞金女王）は、企業や自治体向けの講演、トークイベント、メディア出演の依頼を受け付けている。中心のテーマは、3度の長期離脱からの復帰と、競技を続けるという判断である。
+  </p>
+
+  <h2>講演テーマの例</h2>
+  <ul class="cards">
+    {themes.map((t) => (
+      <li>
+        <h3>{t.title}</h3>
+        <p>{t.body}</p>
+        <p class="updated">想定される場：{t.audience}</p>
+      </li>
+    ))}
+  </ul>
+  <p>テーマは行事の趣旨に合わせて組み替えられる。参加者の年代と、当日に持ち帰ってほしいことをお知らせいただきたい。</p>
+
+  <h2>対応できる形式</h2>
+  <ul>
+    {formats.map((f) => (<li>{f}</li>))}
+  </ul>
+  <p>
+    講演料は形式、時間、開催地により異なるため個別に見積もる。
+    <span class="flag">[要確認]</span> 目安の金額を掲載するかどうかを決める。
+  </p>
+
+  <h2>過去の出演・掲載実績</h2>
+  <p>
+    <span class="flag">[要確認]</span>
+    テレビ・ラジオ出演、雑誌やウェブの取材記事、講演の実績を年月と媒体名で一覧にする。掲載可否を確認のうえ追加する。
+  </p>
+  <p>
+    ツアー復帰に関する報道は、JLPGA公式サイトおよびゴルフ専門メディアで確認できる。
+  </p>
+  <ul>
+    <li><a href="https://news.golfdigest.co.jp/news/jlpga/article/174254/1/" rel="noopener noreferrer" target="_blank">GDO「「とにかくこの舞台に立ちたい」と難病を告白 47歳の大山志保が涙のツアー復帰」（2024年11月）</a></li>
+    <li><a href="https://www.alba.co.jp/articles/category/tour/jlpga/post/kuzx9y0jv8y/" rel="noopener noreferrer" target="_blank">ALBA Net「大山志保が涙の4年ぶり予選通過」（2026年3月）</a></li>
+  </ul>
+
+  <h2>依頼の流れ</h2>
+  <ol>
+    <li>お問い合わせページの「講演」または「取材」から、開催日、場所、参加者、想定テーマをお送りください。</li>
+    <li>日程と内容を確認のうえ、可否と条件を返信する。</li>
+    <li>内容の打ち合わせ。事前に参加者の関心を共有いただけると、構成を合わせやすい。</li>
+    <li>当日。</li>
+  </ol>
+  <p><a class="cta" href="/contact?subject=speaking">講演について問い合わせる</a></p>
+
+  <EnSummary>
+    <p>
+      Shiho Oyama, the 2006 JLPGA money list leader, accepts speaking engagements for companies,
+      local governments, and events. Her core subject is returning to competition after three long
+      absences and the decision to keep playing.
+    </p>
+    <p>Fees depend on format, length, and location, and are quoted individually.</p>
+  </EnSummary>
+</Base>
