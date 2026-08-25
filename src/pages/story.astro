@@ -1,0 +1,83 @@
+---
+import Base from '../layouts/Base.astro';
+import EnSummary from '../components/EnSummary.astro';
+import { timeline, keyEvents } from '../data/timeline';
+import { site } from '../data/site';
+
+const title = 'ストーリー｜大山志保の年表（1977年〜2026年）';
+const description =
+  '大山志保は3度の長期離脱をすべて経て競技に復帰したプロゴルファー。1977年の出生から2026年の予選通過までを、年月・出来事・出典の3点で並べた年表。';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  '@id': `${site.origin}/story#timeline`,
+  name: '大山志保 年表：主要な優勝と離脱・復帰',
+  description: '大山志保（プロゴルファー、2006年賞金女王）の経歴のうち、主要な出来事を年月順に並べたもの。',
+  numberOfItems: keyEvents.length,
+  itemListOrder: 'https://schema.org/ItemListOrderAscending',
+  itemListElement: keyEvents.map((e, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    item: {
+      '@type': 'Event',
+      name: e.heading,
+      startDate: e.machine,
+      description: e.body,
+      eventStatus: 'https://schema.org/EventScheduled',
+      eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
+      location: { '@type': 'Country', name: '日本' },
+      performer: { '@id': `${site.origin}/#person` },
+      url: `${site.origin}/story`,
+    },
+  })),
+};
+---
+<Base title={title} description={description} schema={schema}>
+  <h1>ストーリー</h1>
+
+  <p class="lead">
+    大山志保（プロゴルファー、2006年賞金女王）は、20年を超えるツアー生活で3度の長期離脱を経験し、そのすべてから競技に復帰した。このページは、1977年の出生から2026年3月の予選通過までを年月順に並べ、各項目に出典を付けたものである。
+  </p>
+
+  <p>
+    離脱の理由は、2009年が左肘、2017年が頚椎椎間板ヘルニア、2022年が原因不明の全身の痛みだった。2022年からの離脱については、本人が「原因不明の病」と語っており、病名は公表されていない。
+  </p>
+
+  <ol class="timeline">
+    {timeline.map((e) => (
+      <li>
+        <time datetime={e.machine}>{e.label}</time>
+        <h2>{e.heading}</h2>
+        <p>{e.body}</p>
+        {e.needsCheck && <p><span class="flag">[要確認]</span> {e.needsCheck}</p>}
+        <div class="sources">
+          出典：
+          <ul>
+            {e.sources.map((s) => (
+              <li><a href={s.url} rel="noopener noreferrer" target="_blank">{s.label}</a></li>
+            ))}
+          </ul>
+        </div>
+      </li>
+    ))}
+  </ol>
+
+  <ul class="next-links">
+    <li><a href="/records">優勝18試合の一覧を見る</a></li>
+    <li><a href="/now">今季の出場と結果を見る</a></li>
+  </ul>
+
+  <EnSummary>
+    <p>
+      A chronology of Shiho Oyama's career, from her 2000 JLPGA tour card to her return to
+      competition in the 2020s. Each entry carries the date, what happened, and a source link.
+    </p>
+    <p>
+      Three long absences shape the timeline: left elbow surgery at the end of 2009, a cervical
+      disc herniation diagnosed in October 2017, and an undiagnosed condition causing pain
+      throughout her body from June 2022. She has not disclosed a diagnosis for the last of these,
+      and this site does not speculate about one.
+    </p>
+  </EnSummary>
+</Base>
