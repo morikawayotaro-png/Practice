@@ -1,6 +1,39 @@
 # デプロイとドメイン切り替え手順
 
-## 1. Vercelへのデプロイ
+## 0. 公開前にプレビューURLだけ先に見る（推奨）
+
+ドメインを切り替えずに、実際のサイトとして触れる状態を先に作れる。
+`https://<プロジェクト名>-<ハッシュ>.vercel.app` という一時URLが発行され、
+yokomine-sakura.com には一切影響しない。関係者への共有もこのURLで足りる。
+
+1. [vercel.com](https://vercel.com) にGitHubアカウントでログイン。
+2. **Add New → Project** → `morikawayotaro-png/Practice` を選んで **Import**。
+   （リポジトリが出てこない場合は、GitHub連携の画面で対象リポジトリへのアクセスを許可する）
+3. 設定はAstroとして自動検出される。次を確認して **Deploy**。
+   - Framework Preset: **Astro**
+   - Build Command: `npm run build`
+   - Output Directory: `dist`
+   - Install Command: `npm install`（`npm ci` でもよい）
+   - Node.js Version: **22.x**
+4. **重要**: 現時点で作業内容は `claude/yokomine-sakura-site-v9oxcc` ブランチにある。
+   `main` にはまだ何も入っていないため、初回のデプロイは失敗する。
+   デプロイ後に **Settings → Git → Production Branch** を
+   `claude/yokomine-sakura-site-v9oxcc` に変更し、**Deployments → 最新 → Redeploy** を実行する。
+   （または先に `main` へマージしておけば、この手順は不要）
+5. 発行されたURLを開いて全ページを確認する。
+   以降、このブランチにpushするたびに自動で更新される。
+
+ローカルで見る場合は次の通り。Node.js 22が必要。
+
+```bash
+git clone https://github.com/morikawayotaro-png/Practice.git
+cd Practice
+git checkout claude/yokomine-sakura-site-v9oxcc
+npm ci
+npm run dev      # http://localhost:4321
+```
+
+## 1. Vercelへのデプロイ（本番）
 
 1. GitHubにこのリポジトリをpushする（このリポジトリは push 済み）。
 2. [vercel.com](https://vercel.com) にログインし、**Add New → Project** からこのリポジトリを選ぶ。
