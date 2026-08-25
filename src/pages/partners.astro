@@ -1,0 +1,118 @@
+---
+import Base from '../layouts/Base.astro';
+import EnSummary from '../components/EnSummary.astro';
+import { site } from '../data/site';
+
+const title = 'パートナー｜大山志保とのスポンサーシップについて';
+const description =
+  '大山志保のスポンサーシップは、ロゴの掲出量を成果指標に置かず、復帰への取り組みを企業が共に担う形を前提にしている。相性の良い領域と問い合わせ方法。';
+
+const fields = [
+  {
+    name: '医療・リハビリテーション',
+    body: '大山志保は3度の長期離脱と復帰を経験している。治療とリハビリの過程で使われた技術や機器は、実際の使用者の言葉で語れる領域になる。',
+  },
+  {
+    name: 'ヘルスケア・コンディショニング',
+    body: '40代後半でツアーに出場を続ける選手の日常のコンディショニングは、同年代の生活者に近い。誇張のない形で製品やサービスの使われ方を伝えられる。',
+  },
+  {
+    name: '保険',
+    body: '長期の欠場中もシード資格を保つJLPGAのトーナメント特別保障制度は、競技者にとっての保障の意味を具体的に説明できる題材である。',
+  },
+  {
+    name: '睡眠・リカバリー',
+    body: '痛みを抱えた期間の睡眠と回復は、本人が繰り返し語ってきたテーマにあたる。',
+  },
+  {
+    name: '宮崎の地元企業',
+    body: '宮崎県宮崎市出身で、2026年3月には地元開催のアクサレディスin MIYAZAKIに出場した。県内での露出と地域の行事への関与が両立する。',
+  },
+];
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  '@id': `${site.origin}/partners#sponsorship`,
+  name: '大山志保のスポンサーシップ・パートナーシップ',
+  serviceType: 'アスリートスポンサーシップ',
+  description:
+    'プロゴルファー大山志保とのスポンサー契約。ロゴ掲出にとどまらず、競技復帰への取り組みを企業が共に担う共闘型の枠組みを想定している。',
+  provider: { '@id': `${site.origin}/#person` },
+  areaServed: { '@type': 'Country', name: 'Japan' },
+  audience: { '@type': 'BusinessAudience', name: '医療・ヘルスケア・保険・睡眠・地域企業' },
+  url: `${site.origin}/partners`,
+  potentialAction: {
+    '@type': 'ContactAction',
+    target: `${site.origin}/contact`,
+    name: 'スポンサーシップの問い合わせ',
+  },
+};
+---
+<Base title={title} description={description} schema={schema}>
+  <h1>パートナー</h1>
+
+  <p class="lead">
+    大山志保とのスポンサー契約は、ロゴの掲出量を成果指標に置かず、競技への復帰と継続を企業が共に担う枠組みを前提にしている。支える側に立つこと自体が、その企業が何を大事にしているかの説明になる。
+  </p>
+
+  <h2>共闘型のスポンサーシップとは何か</h2>
+  <p>
+    従来のアスリートスポンサーシップは、成績と露出量に価値の中心があった。大山志保の場合、価値の中心は経過にある。2009年の左肘の手術、2017年の頚椎椎間板ヘルニア、2022年からの原因不明の全身の痛み。3度の離脱から、そのつど試合に戻ってきた。2024年11月に868日ぶりの復帰、2026年3月に約4年ぶりの予選通過という段階を踏んでいる最中である。
+  </p>
+  <p>
+    この経過を共有できる立場に企業が入ると、語れることが変わる。復帰の過程で実際に使われた製品やサービスは、機能の説明ではなく使用の記録として提示できる。競技を続ける判断を支えた事実は、その企業がどういう時間軸で人と付き合う会社なのかを示す材料になる。
+  </p>
+
+  <h2>相性が良いと考えている領域</h2>
+  <ul class="cards">
+    {fields.map((f) => (
+      <li>
+        <h3>{f.name}</h3>
+        <p>{f.body}</p>
+      </li>
+    ))}
+  </ul>
+
+  <h2>届く層について</h2>
+  <p>
+    大山志保が賞金女王になった2006年は、女子ゴルフのテレビ中継を通じて名前が広く知られた時期にあたる。当時30代から40代でその中継を見ていた層は、現在50代から60代になっている。企業の決裁者層と重なる年代である。名前の想起があるところから話が始まる点は、若い世代を対象にした契約とは性質が異なる。
+  </p>
+  <p class="note">
+    <span class="flag">[要確認]</span>
+    当時の視聴者層のデータ、および現在の認知度に関する調査結果があれば、数字として提示したい。
+  </p>
+
+  <h2>提供できること</h2>
+  <ul>
+    <li>ウェア・用具・キャディバッグへのロゴ掲出</li>
+    <li>企業の社内行事や顧客向けイベントでの登壇、レッスン、トークセッション</li>
+    <li>製品やサービスの使用にもとづく感想の提供</li>
+    <li>宮崎県内での活動への参加</li>
+    <li>広告・広報物への出演 <span class="flag">[要確認]</span> 条件はマネジメントを通じて調整する</li>
+  </ul>
+
+  <h2>現在のパートナー企業</h2>
+  <p>
+    <span class="flag">[要確認]</span>
+    現在の契約企業の一覧を掲載する。企業名・ロゴの使用可否を確認のうえ追加する。
+  </p>
+
+  <h2>問い合わせ</h2>
+  <p>
+    スポンサーシップに関する相談は、お問い合わせページの「スポンサー」からご連絡ください。契約形態や規模の想定が固まっていない段階でも構わない。
+  </p>
+  <p><a class="cta" href="/contact?subject=sponsor">スポンサーシップについて問い合わせる</a></p>
+
+  <EnSummary>
+    <p>
+      Sponsorship with Shiho Oyama is built around shared commitment rather than logo exposure
+      alone. She is in the middle of a comeback: back on tour in November 2024 after 868 days out,
+      and through a cut for the first time in about four years in March 2026.
+    </p>
+    <p>
+      Companies in medical care and rehabilitation, healthcare, insurance, sleep and recovery, and
+      businesses based in Miyazaki Prefecture are the closest fits. Enquiries are welcome at any
+      stage.
+    </p>
+  </EnSummary>
+</Base>
