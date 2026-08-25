@@ -1,0 +1,109 @@
+---
+import Base from '../layouts/Base.astro';
+import EnSummary from '../components/EnSummary.astro';
+import { season, upcoming, seasonYear, lastUpdated } from '../data/season';
+import { currentAge } from '../data/profile';
+import { site } from '../data/site';
+
+const title = 'いま｜大山志保の2026年シーズン 出場と結果';
+const description =
+  '大山志保は2026年もJLPGAツアーに出場している。3月のアクサレディスin MIYAZAKIで約4年ぶりに予選を通過した。今季の出場と結果の一覧。';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  '@id': `${site.origin}/now#season`,
+  name: `大山志保 ${seasonYear}年シーズンの出場と結果`,
+  numberOfItems: season.length,
+  itemListOrder: 'https://schema.org/ItemListOrderDescending',
+  itemListElement: season.map((s, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    item: {
+      '@type': 'SportsEvent',
+      name: `${seasonYear}年 ${s.tournament}`,
+      ...(s.date ? { startDate: s.date } : {}),
+      sport: 'ゴルフ',
+      location: { '@type': 'Country', name: '日本' },
+      performer: { '@id': `${site.origin}/#person` },
+      description: `大山志保の結果は${s.result}。${s.note ?? ''}`.trim(),
+    },
+  })),
+};
+---
+<Base title={title} description={description} schema={schema}>
+  <h1>いま</h1>
+
+  <p class="lead">
+    大山志保（プロゴルファー、2006年賞金女王）は{seasonYear}年もJLPGAツアーに出場している。2024年11月に2年5カ月ぶりの復帰を果たし、{seasonYear}年3月のアクサレディスゴルフトーナメント in MIYAZAKIで約4年ぶりに予選を通過した。現在{currentAge}歳。
+  </p>
+
+  <p class="updated">
+    このページの最終更新：<time datetime={lastUpdated}>{lastUpdated}</time>
+  </p>
+
+  <h2>{seasonYear}年の出場と結果</h2>
+  <div class="table-scroll">
+    <table>
+      <caption>{seasonYear}年シーズンの出場試合。新しい順。</caption>
+      <thead>
+        <tr>
+          <th scope="col">大会</th>
+          <th scope="col">日程</th>
+          <th scope="col">結果</th>
+        </tr>
+      </thead>
+      <tbody>
+        {season.map((s) => (
+          <tr>
+            <th scope="row">{s.tournament}</th>
+            <td>{s.date ? <time datetime={s.date}>{s.dateLabel}</time> : s.dateLabel}</td>
+            <td>
+              {s.result}
+              {s.note && <><br />{s.note}</>}
+              {s.needsCheck && <><br /><span class="flag">[要確認]</span> {s.needsCheck}</>}
+            </td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+  <p class="note">
+    <span class="flag">[要確認]</span>
+    今季の出場試合の網羅性は未確認。JLPGA公式およびGDOの戦績ページで照合したうえで、抜けを追加する。
+  </p>
+
+  <h2>今後の出場予定</h2>
+  {upcoming.length === 0 ? (
+    <p>
+      次戦の出場予定は決まり次第このページに掲載する。<span class="flag">[要確認]</span>
+    </p>
+  ) : (
+    <ul>
+      {upcoming.map((u) => (<li>{u.tournament}（{u.dateLabel}）</li>))}
+    </ul>
+  )}
+
+  <h2>いまの状況について</h2>
+  <p>
+    大山志保は2022年6月のアース・モンダミンカップを最後に、原因不明の全身の痛みにより長期離脱した。JLPGAのトーナメント特別保障制度の適用を受け、2024年11月の伊藤園レディスで868日ぶりに試合へ戻っている。病名は公表されていない。
+  </p>
+  <p>
+    復帰後は出場数を絞りながら試合を重ねており、{seasonYear}年3月のアクサレディスin MIYAZAKIでは2日目を終えてトータル1アンダー・43位タイに入り、2022年5月のブリヂストンレディス以来の予選通過となった。
+  </p>
+
+  <ul class="next-links">
+    <li><a href="/story">これまでの経緯を年表で読む</a></li>
+    <li><a href="/records">通算18勝の記録を見る</a></li>
+    <li><a href="/contact">取材・出演の問い合わせ</a></li>
+  </ul>
+
+  <EnSummary>
+    <p>
+      Shiho Oyama is competing on the JLPGA Tour in {seasonYear}. She returned in November 2024
+      after 868 days away, and in March 2026 made the cut at the AXA Ladies in MIYAZAKI, her first
+      cut in about four years.
+    </p>
+    <p>Last updated: <time datetime={lastUpdated}>{lastUpdated}</time>.</p>
+  </EnSummary>
+</Base>
