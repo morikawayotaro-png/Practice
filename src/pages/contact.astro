@@ -1,0 +1,144 @@
+---
+import Base from '../layouts/Base.astro';
+import EnSummary from '../components/EnSummary.astro';
+import { site } from '../data/site';
+
+const title = 'お問い合わせ｜大山志保';
+const description =
+  '大山志保への連絡は、スポンサー、講演、取材、その他の4つの用件別に受け付けている。用件ごとの窓口と、お伝えいただきたい内容。';
+
+const subjects = [
+  {
+    id: 'sponsor',
+    label: 'スポンサー',
+    body: 'スポンサーシップ、製品提供、共同での取り組みに関する相談。想定している期間と関わり方をお知らせいただけると話が早い。',
+    mailSubject: '【スポンサー】大山志保 公式サイトからの問い合わせ',
+    link: { href: '/partners', label: 'パートナーページを見る' },
+  },
+  {
+    id: 'speaking',
+    label: '講演・イベント',
+    body: '講演、トークセッション、企業や自治体の行事への登壇。開催日、場所、参加者の人数と属性、想定テーマをお知らせください。',
+    mailSubject: '【講演】大山志保 公式サイトからの問い合わせ',
+    link: { href: '/speaking', label: '講演テーマと依頼の流れを見る' },
+  },
+  {
+    id: 'media',
+    label: '取材・メディア出演',
+    body: 'インタビュー、番組出演、写真や記事での使用について。媒体名、掲載時期、想定の分量をお知らせください。',
+    mailSubject: '【取材】大山志保 公式サイトからの問い合わせ',
+    link: { href: '/now', label: '今季の出場と結果を見る' },
+  },
+  {
+    id: 'other',
+    label: 'その他',
+    body: '上のいずれにも当てはまらないご連絡。',
+    mailSubject: '【その他】大山志保 公式サイトからの問い合わせ',
+  },
+];
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'ContactPage',
+  '@id': `${site.origin}/contact#contactpage`,
+  name: title,
+  description,
+  inLanguage: 'ja',
+  about: { '@id': `${site.origin}/#person` },
+  mainEntity: {
+    '@type': 'Person',
+    '@id': `${site.origin}/#person`,
+    contactPoint: subjects.map((s) => ({
+      '@type': 'ContactPoint',
+      contactType: s.label,
+      email: site.contactEmail,
+      areaServed: 'JP',
+      availableLanguage: ['ja', 'en'],
+    })),
+  },
+};
+---
+<Base title={title} description={description} schema={schema}>
+  <h1>お問い合わせ</h1>
+
+  <p class="lead">
+    大山志保への連絡は、スポンサー、講演・イベント、取材・メディア出演、その他の4つの用件別に受け付けている。用件と、必要な情報をあわせてお送りください。
+  </p>
+
+  <p class="note">
+    <span class="flag">[要確認]</span>
+    問い合わせ先のメールアドレス、およびマネジメント窓口を経由するかどうかを確定させる。現在は仮のアドレス（{site.contactEmail}）を表示している。
+  </p>
+
+  <h2>用件別の窓口</h2>
+  <ul class="cards">
+    {subjects.map((s) => (
+      <li id={s.id}>
+        <h3>{s.label}</h3>
+        <p>{s.body}</p>
+        <p>
+          <a href={`mailto:${site.contactEmail}?subject=${encodeURIComponent(s.mailSubject)}`}>
+            メールで問い合わせる
+          </a>
+          {s.link && <> ／ <a href={s.link.href}>{s.link.label}</a></>}
+        </p>
+      </li>
+    ))}
+  </ul>
+
+  {site.formEndpoint ? (
+    <>
+      <h2>フォームから送る</h2>
+      <form class="form-grid" action={site.formEndpoint} method="post">
+        <label>
+          用件
+          <select name="subject" required>
+            {subjects.map((s) => (<option value={s.label}>{s.label}</option>))}
+          </select>
+        </label>
+        <label>
+          お名前
+          <input type="text" name="name" autocomplete="name" required />
+        </label>
+        <label>
+          会社・団体名
+          <input type="text" name="organization" autocomplete="organization" />
+        </label>
+        <label>
+          メールアドレス
+          <input type="email" name="email" autocomplete="email" required />
+        </label>
+        <label>
+          ご用件
+          <textarea name="message" rows="7" required></textarea>
+        </label>
+        <p><button class="cta" type="submit">送信する</button></p>
+      </form>
+    </>
+  ) : (
+    <>
+      <h2>フォームについて</h2>
+      <p>
+        現在はメールでの受付のみとしている。
+        <span class="flag">[要確認]</span>
+        フォームサービスのエンドポイントを <code>src/data/site.ts</code> の <code>formEndpoint</code> に設定すると、用件・氏名・会社名・メールアドレス・本文を送るフォームが同じページに表示される。
+      </p>
+    </>
+  )}
+
+  <h2>お伝えいただきたいこと</h2>
+  <ul>
+    <li>ご所属とお名前</li>
+    <li>用件（スポンサー、講演、取材、その他）</li>
+    <li>希望の日程がある場合はその日付</li>
+    <li>返信先のメールアドレス</li>
+  </ul>
+
+  <EnSummary>
+    <p>
+      Enquiries for Shiho Oyama are handled in four categories: sponsorship, speaking engagements,
+      media and interviews, and everything else. English enquiries are welcome.
+    </p>
+    <p>Email: {site.contactEmail}</p>
+  </EnSummary>
+</Base>

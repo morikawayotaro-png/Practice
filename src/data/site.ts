@@ -4,6 +4,12 @@ export const site = {
   origin: 'https://shiho-oyama.example.com',
   /** [要確認] 問い合わせ先メールアドレス */
   contactEmail: 'contact@example.com',
+  /**
+   * 問い合わせフォームの送信先。Formspree など静的サイト向けのフォームサービスの
+   * エンドポイントを入れると、/contact がフォーム表示に切り替わる。
+   * 空のあいだはメールでの問い合わせ導線を表示する。 [要確認]
+   */
+  formEndpoint: '' as string,
   nav: [
     { href: '/', label: 'トップ' },
     { href: '/story', label: 'ストーリー' },

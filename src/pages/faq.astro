@@ -1,0 +1,61 @@
+---
+import Base from '../layouts/Base.astro';
+import EnSummary from '../components/EnSummary.astro';
+import { faq } from '../data/faq';
+import { site } from '../data/site';
+import { lastUpdated } from '../data/season';
+
+const title = 'よくある質問｜大山志保について';
+const description =
+  '大山志保（プロゴルファー、2006年賞金女王）についての質問と回答。現在の活動状況、通算18勝の内訳、3度の離脱と復帰、講演依頼の可否をまとめた。';
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  '@id': `${site.origin}/faq#faqpage`,
+  name: title,
+  description,
+  inLanguage: 'ja',
+  dateModified: lastUpdated,
+  about: { '@id': `${site.origin}/#person` },
+  mainEntity: faq.map((f) => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+};
+---
+<Base title={title} description={description} schema={schema}>
+  <h1>よくある質問</h1>
+
+  <p class="lead">
+    このページは、大山志保（プロゴルファー、2006年賞金女王）について多い質問に答えるものである。現在の活動状況、通算18勝の内訳、3度の離脱と復帰の経緯、講演依頼の可否を扱う。
+  </p>
+
+  <div class="faq-list">
+    {faq.map((f) => (
+      <div>
+        <h2>{f.q}</h2>
+        <p>{f.a}</p>
+        {f.needsCheck && <p><span class="flag">[要確認]</span> {f.needsCheck}</p>}
+        {f.more && <p><a href={f.more.href}>{f.more.label}</a></p>}
+      </div>
+    ))}
+  </div>
+
+  <p class="updated">
+    最終更新：<time datetime={lastUpdated}>{lastUpdated}</time>
+  </p>
+
+  <EnSummary>
+    <p>
+      Answers to common questions about Shiho Oyama: her current status on the JLPGA Tour, her 18
+      tour wins and 2006 money title, the three long absences she has returned from, and how to
+      request a speaking engagement.
+    </p>
+    <p>
+      She has not disclosed a diagnosis for the condition that kept her off the tour from June 2022,
+      and this site does not speculate about one.
+    </p>
+  </EnSummary>
+</Base>
